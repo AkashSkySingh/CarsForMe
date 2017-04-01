@@ -3,7 +3,7 @@
 - [CarsForMe: Live][live]
 - [CarsForMe: Github][github]
 
-[live]: CarsForMe.net
+[live]: https://www.CarsForMe.net
 [github]: https://github.com/AkashSkySingh/CarsForMe
 
 ## Minimum Viable Product
