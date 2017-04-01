@@ -1,19 +1,19 @@
 ## Component Hierarchy
 
 **Results**:
- - CarsSearch
- - FiltersForm
+  - CarsSearch
+  - FiltersForm
 
 **Root**:
- - NavBar:
-  + SessionForm
-  + SearchForm
+  - NavBar:
+    + SessionForm
+    + SearchForm
 
 **Show**:
- - CarDetail,
- - Map:
-  + GoogleMap/Places
-  + Dealers
+  - CarDetail
+  - Map:
+    + GoogleMap/Places
+    + Dealers
 
 **Splash**:
- - AwardWinningCars
+  - AwardWinningCars
