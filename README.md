@@ -53,6 +53,15 @@ The primary technical challenges will be:
 - Another possible technical issue is getting Google Places to accept relevant  query information to produce the necessary dealership information.
 - Additionally, get car specific information, specifically true market values will be difficult as primary source of information is Edmunds, which although has an API, is severely limited in non-production use.
 
+### CarQueryApi Implementation
+
+```
+$.getJSON("https://www.carqueryapi.com/api/0.3/" + "?callback=?", {cmd:"getInfo", year: 2017, make: 'toyota', model:'camry'}, function(data) {
+}
+```
+
+The variable, getInfo, can be anything from makes, models, trims, and years for the various cars we need more information on, and this information will then be seeded into our database for potential user use. 
+
 ## Group Members and Work Breakdown
 Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All members are expected to learn Django and Python, as well as complete the following tasks:
 
@@ -80,7 +89,7 @@ Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All mem
 **Objective:** The main goal today is to get Django up and running along with some data verified and seeded. Any extra time would be spent on implementing user authentication. By the end of the day, we will have:
  - [ ] Set up Django and get a splash page up on local host (Aaron)
  - [ ] Write user authentication (Akash)
- - [ ] Consolidate data of cars and import to database (Khalil)
+ - [ ] Consolidate data of cars and import to database using CarQuery API (Khalil)
  - [ ] Final decision on car and user Models, Validations and Routes (group)
 
 ### Phase 2: Complete Auth and Splash
@@ -90,7 +99,7 @@ Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All mem
  - [ ] Finish splash page with fake award cars data on the bottom (Aaron)
  - [ ] Verify seeded data and help complete the two tasks above (Khalil)
  - [ ] Implementing Routes/Controllers in the backend (Khalil)
-
+ 
 ### Phase 3: Car Result Page and Bug Testing
 
 **Objective:** Start working on the results show page where there’s a filter side bar and a car index container based on the filter selection. By the end of the day, we will have:
