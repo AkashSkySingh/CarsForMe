@@ -51,7 +51,6 @@ The primary technical challenges will be:
 - Adjusting to Django framework with a new language of Python. All group members will be learning this language and framework over the timeline of this project.
 - Adequately hosting and problem solving issues amongst the integration and cooperation of different APIs. Query results from one API will be used with additional information for another API/AJAX request.
 - Another possible technical issue is getting Google Places to accept relevant  query information to produce the necessary dealership information.
-- Additionally, get car specific information, specifically true market values will be difficult as primary source of information is Edmunds, which although has an API, is severely limited in non-production use.
 
 ### CarQueryApi Implementation
 
@@ -72,12 +71,14 @@ Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All mem
   + [ ] Car detail container and other show page components
   + [ ] Refactoring code
 - Akash will complete the following:
-  + [ ] Implement user creation and authentication
+  + [ ] Setting up Django
   + [ ] Car list index container and car list item components
   + [ ] Integrate Google Places/Maps API to show dealerships
+  + [ ] Styling
   + [ ] Setting up domain and pushing to production
 - Khalil will complete the following:
   + [ ] Set up database using CarQuery API and seeding
+  + [ ] Pricing information for cars 
   + [ ] Implementing Routes/Controllers in the backend
   + [ ] Search functionality and filtering the results
   + [ ] Styling
@@ -87,24 +88,23 @@ Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All mem
 ### Phase 1: Django up and running
 
 **Objective:** The main goal today is to get Django up and running along with some data verified and seeded. Any extra time would be spent on implementing user authentication. By the end of the day, we will have:
- - [ ] Set up Django and get a splash page up on local host (Aaron)
- - [ ] Write user authentication (Akash)
+ - [ ] Set up Django and get a splash page up on local host (Aaron + Akash)
  - [ ] Consolidate data of cars and import to database using CarQuery API (Khalil)
  - [ ] Final decision on car and user Models, Validations and Routes (group)
 
 ### Phase 2: Complete Auth and Splash
 
 **Objective:** Work on completing user authentication and finishing the splash page. By the end of the day, we will have:
- - [ ] Complete user authentication (be able to login and signup accounts (Akash)
- - [ ] Finish splash page with fake award cars data on the bottom (Aaron)
+ - [ ] Complete user authentication (be able to login and signup accounts (Aaron + Akash)
+ - [ ] Finish splash page with fake award cars data on the bottom (Akash + Aaron)
  - [ ] Verify seeded data and help complete the two tasks above (Khalil)
  - [ ] Implementing Routes/Controllers in the backend (Khalil)
  
 ### Phase 3: Car Result Page and Bug Testing
 
 **Objective:** Start working on the results show page where there’s a filter side bar and a car index container based on the filter selection. By the end of the day, we will have:
- - [ ] Create the results page with filter container on the left (Aaron)
- - [ ] Implement search functionality and filtering the results (Khalil)
+ - [ ] Create the results page with filter container on the left (Khalil + Aaron)
+ - [ ] Implement search functionality and filtering the results (Khalil + Aaron)
  - [ ] Create the Car List Index container with mini car detail container on the right (Akash)
  - [ ] Check Phase 1 and 2 work for bugs (Aaron)
 
@@ -112,18 +112,18 @@ Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All mem
 
 **Objective:** Car detail/show page with google API for dealerships . By the end of the day, we will have:
  - [ ] Implement a car detail container where it shows the car specs (Aaron)
- - [ ] Implement Google Maps/Places to get the nearest 3 dealerships under the Car’s Make based on the users location (from profile) (Akash)
+ - [ ] Implement Google Maps/Places to get the nearest 3 dealerships under the Car’s Make based on the users location (from profile) (Akash + Khalil)
  - [ ] Check Phase 3 work for bugs (Khalil)
 
 ### Phase 5: Clean-Up and Testing
 
 **Objective:** Focus on polishing the final product, ensuring a bug free application. By the end of the day, we will have:
- - [ ] Finish Styling (Khalil)
+ - [ ] Finish Styling (Khalil + Akash)
+ - [ ] Verify seed data (Khalil)
  - [ ] Refactor code (Aaron)
  - [ ] Final test and features (Khalil)
  - [ ] Complete the Production readme (Akash)
  - [ ] Push to prod (Akash)
-
 
 ### Bonus Features (TBD)
 - [ ] Provide user vehicle following/favoriting functionality
