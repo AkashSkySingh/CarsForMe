@@ -5,9 +5,9 @@
 *.egg-info
 *.pot
 *.py[co]
-.tox/
-__pycache__
-MANIFEST
+*.pyc
+*~
+
 dist/
 docs/_build/
 docs/locale/
@@ -16,8 +16,15 @@ tests/coverage_html/
 tests/.coverage
 build/
 tests/report/
+assets/bundles/
 
-*.pyc
-*~
+__init__.pyc
+settings.pyc
+urls.pyc
+wsgi.pyc
+
+__pycache__
+.tox/
+MANIFEST
 /static
 .DS_Store
