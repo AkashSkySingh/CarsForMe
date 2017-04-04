@@ -16,8 +16,13 @@ tests/coverage_html/
 tests/.coverage
 build/
 tests/report/
+__init__.pyc
+settings.pyc
+urls.pyc
+wsgi.pyc
 
 *.pyc
 *~
 /static
 .DS_Store
+/assets/bundles
