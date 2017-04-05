@@ -1,4 +1,4 @@
-#!/Users/aaronhuynh/Desktop/carsforme/myenv/bin/python2.7
+#!/Users/aaronhuynh/Desktop/CarsForMe/myenv/bin/python
 from django.core import management
 
 if __name__ == "__main__":
