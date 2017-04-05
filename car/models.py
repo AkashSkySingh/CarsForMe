@@ -24,3 +24,11 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
+
+class Make(models.Model):
+    make_display = models.CharField(max_length=200)
+    make_id = models.CharField(max_length=200)
+    make_country = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.make_display
