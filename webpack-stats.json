@@ -1,1 +1,1 @@
-{"status":"done","chunks":{"main":[{"name":"main-ca72bc26513372cc603f.js","path":"/Users/aaronhuynh/Desktop/CarsForMe/assets/bundles/main-ca72bc26513372cc603f.js"}]}}
+{"status":"done","chunks":{"main":[{"name":"main-b0ffa31215d0f92397b9.js","path":"/Users/aaronhuynh/Desktop/CarsForMe/assets/bundles/main-b0ffa31215d0f92397b9.js"}]},"error":"ModuleBuildError","message":"Module build failed: Error: ENOENT: no such file or directory, open '/Users/aaronhuynh/Desktop/CarsForMe/node_modules/resolve-pathname/index.js'\n    at Error (native)"}
