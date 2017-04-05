@@ -16,12 +16,6 @@ tests/coverage_html/
 tests/.coverage
 build/
 tests/report/
-assets/bundles/
-
-__init__.pyc
-settings.pyc
-urls.pyc
-wsgi.pyc
 
 __pycache__
 .tox/
