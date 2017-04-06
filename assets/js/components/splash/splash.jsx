@@ -10,7 +10,7 @@ class Splash extends React.Component {
     return (
       <div class="middle">
         <div class="splash-">
-          <h1>Hello World from Splash container</h1>
+          <h1>Hello World from Splash</h1>
         </div>
       </div>
     );
