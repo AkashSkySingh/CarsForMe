@@ -14,3 +14,7 @@
 
 ## Django Rest Framework tutorial
  - http://www.django-rest-framework.org/tutorial/1-serialization/
+
+## Django Adding-Search-In-A-Snap
+ - http://julienphalip.com/post/2825034077/adding-search-to-a-django-site-in-a-snap
+ - https://github.com/squarepegsys/django-simple-search
