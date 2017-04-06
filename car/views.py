@@ -1,7 +1,5 @@
-
-
 from rest_framework import viewsets, filters
-from car.models import Make, CarModel
+from car.models import Make, CarModel, Trim
 from car.serializers import MakeSerializer, CarModelSerializer
 
 from .utils import generic_search
