@@ -24,6 +24,7 @@ from car import views
 router = routers.DefaultRouter()
 router.register(r'makes', views.MakeViewSet)
 router.register(r'carmodels', views.CarModelViewSet)
+router.register(r'trims', views.TrimViewSet)
 
 
 urlpatterns = [
