@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from rest_framework import viewsets
+
+
+from rest_framework import viewsets, filters
 from car.models import Make, CarModel
 from car.serializers import MakeSerializer, CarModelSerializer
 
@@ -7,16 +8,13 @@ from car.serializers import MakeSerializer, CarModelSerializer
 
 
 class MakeViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
     queryset = Make.objects.all()
     serializer_class = MakeSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
 
 
 class CarModelViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
     queryset = CarModel.objects.all()
     serializer_class = CarModelSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_fields = ('model_make_id', 'model_name')
