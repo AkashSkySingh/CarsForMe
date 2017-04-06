@@ -18,7 +18,17 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views.decorators.csrf import csrf_exempt
 
+from rest_framework import routers
+from car import views
+
+router = routers.DefaultRouter()
+router.register(r'makes', views.MakeViewSet)
+router.register(r'carmodels', views.CarModelViewSet)
+
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'', csrf_exempt(TemplateView.as_view(template_name='index.html')))
+    url(r'admin/', admin.site.urls),
+    url(r'home', csrf_exempt(TemplateView.as_view(template_name='index.html'))),
+    url(r'api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
