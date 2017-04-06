@@ -52,5 +52,7 @@ module.exports = {
         modulesDirectories: ['node_modules'],
         //extensions that should be used to resolve modules
         extensions: ['', '.js', '.jsx']
-    }
+    },
+    devtool: 'source-maps'
+
 }
