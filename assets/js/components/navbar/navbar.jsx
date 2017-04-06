@@ -4,7 +4,6 @@ import React from 'react';
 
 class Navbar extends React.Component {
   render() {
-    debugger;
     return (
       <div>
         <h2> Cars For Me</h2>
