@@ -92,4 +92,3 @@ def values(request):
     for el in list(Trim.objects.values(col_name).distinct(col_name)):
         my_list.append(el[col_name])
     return JsonResponse(my_list, safe=False)
-    # return HttpResponse(stuff)
