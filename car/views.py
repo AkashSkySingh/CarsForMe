@@ -4,6 +4,8 @@ from car.serializers import MakeSerializer, CarModelSerializer, TrimSerializer
 
 from .utils import generic_search
 from django.shortcuts import render_to_response, redirect
+from django.http import JsonResponse, HttpResponse
+
 
 # Create your views here.
 
@@ -83,3 +85,11 @@ def search(request):
                                 "search_string": request.GET.get(QUERY, "")
                                 }
         )
+
+def values(request):
+    my_list = []
+    col_name = request.GET.get('col')
+    for el in list(Trim.objects.values(col_name).distinct(col_name)):
+        my_list.append(el[col_name])
+    return JsonResponse(my_list, safe=False)
+    # return HttpResponse(stuff)
