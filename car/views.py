@@ -2,16 +2,10 @@ from rest_framework import viewsets, filters
 from car.models import Make, CarModel, Trim
 from car.serializers import MakeSerializer, CarModelSerializer, TrimSerializer
 
-<<<<<<< HEAD
-=======
-from .utils import generic_search
 from django.shortcuts import render_to_response, redirect
 from django.http import JsonResponse, HttpResponse
 
->>>>>>> car-detail
-
 # Create your views here.
-
 
 class MakeViewSet(viewsets.ModelViewSet):
     queryset = Make.objects.all()
