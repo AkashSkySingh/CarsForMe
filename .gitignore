@@ -19,6 +19,8 @@ tests/report/
 myenv/
 assets/bundles
 
+webpack-stats.json
+
 __pycache__
 .tox/
 MANIFEST

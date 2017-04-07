@@ -8,5 +8,5 @@ export const receiveCar = car => ({
 });
 
 export const fetchCars = car => dispatch => (
-  CarAPIUtil.fetchCar(car).then(res => dispatch(receiveCar(res)))
+  CarAPIUtil.fetchCars(car).then(res => dispatch(receiveCar(res)))
 );
