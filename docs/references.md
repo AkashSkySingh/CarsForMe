@@ -18,3 +18,9 @@
 ## Django Adding-Search-In-A-Snap
  - http://julienphalip.com/post/2825034077/adding-search-to-a-django-site-in-a-snap
  - https://github.com/squarepegsys/django-simple-search
+
+## CSS in Django
+ - https://tutorial.djangogirls.org/en/css/
+
+## Setting up Django with Reactjs
+ - http://owaislone.org/blog/webpack-plus-reactjs-and-django/

@@ -2,8 +2,6 @@ from rest_framework import viewsets, filters
 from car.models import Make, CarModel, Trim
 from car.serializers import MakeSerializer, CarModelSerializer, TrimSerializer
 
-from .utils import generic_search
-from django.shortcuts import render_to_response, redirect
 
 # Create your views here.
 

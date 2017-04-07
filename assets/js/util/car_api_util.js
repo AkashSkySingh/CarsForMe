@@ -6,3 +6,7 @@ export const fetchCars = car => {
     url: `api/trims/?${query}`
   });
 };
+
+export const fetchCol = col => {
+
+};
