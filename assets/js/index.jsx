@@ -4,8 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { fetchCars } from './util/car_api_util';
-
+import { fetchCar, fetchColValues } from './util/car_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();

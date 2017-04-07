@@ -7,6 +7,10 @@ export const fetchCars = car => {
   });
 };
 
-export const fetchCol = col => {
-
+export const fetchColValues = col => {
+  return $.ajax({
+    method: 'GET',
+    url: 'values',
+    data: {col}
+  });
 };
