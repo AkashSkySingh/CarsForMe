@@ -27,3 +27,4 @@ __pycache__
 MANIFEST
 /static
 .DS_Store
+car/static/assets/bundles
