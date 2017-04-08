@@ -14020,7 +14020,7 @@ module.exports = __webpack_require__(273);
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -14030,23 +14030,13 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _splash_container = __webpack_require__(92);
-
-var _splash_container2 = _interopRequireDefault(_splash_container);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App(_ref) {
   var children = _ref.children;
   return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      'h1',
-      null,
-      'Hi from App'
-    ),
-    _react2.default.createElement(_splash_container2.default, null),
+    "div",
+    { className: "body" },
     children
   );
 };
@@ -14098,11 +14088,6 @@ var Splash = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'splash-center' },
-          _react2.default.createElement(
-            'h1',
-            null,
-            'Hello World from Splash'
-          ),
           _react2.default.createElement(
             'ul',
             { className: 'splash-list' },
