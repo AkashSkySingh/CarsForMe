@@ -11,7 +11,7 @@ const Root = ({ store }) => {
         <Route path="/" component={ App } />
       </Router>
     </Provider>
-  )
+  );
 };
 
 export default Root;

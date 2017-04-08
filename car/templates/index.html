@@ -1,5 +1,5 @@
-<!-- {% load staticfiles %} -->
 {% load render_bundle from webpack_loader %}
+{% render_bundle "main" %}
 
 <html>
 <head>
@@ -11,7 +11,6 @@
 <body>
   <h1> Hi from templates/index.Html</h1>
   <div id="root">
-  {% render_bundle "main" %}
   </div>
   <!-- <script src="{% static 'bundles/main.js' %}"></script> -->
 </body>
