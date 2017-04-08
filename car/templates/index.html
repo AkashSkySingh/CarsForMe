@@ -1,18 +1,19 @@
-<!-- {% load staticfiles %} -->
 {% load render_bundle from webpack_loader %}
+{% render_bundle 'main' %}
+{% load staticfiles %}
 
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="{% static '../static/assets/stylesheets/index.css' %}">
   <title>Cars For Me</title>
 </head>
 <body>
   <h1> Hi from templates/index.Html</h1>
   <div id="root">
-  {% render_bundle "main" %}
   </div>
-  <!-- <script src="{% static 'bundles/main.js' %}"></script> -->
+
 </body>
 </html>

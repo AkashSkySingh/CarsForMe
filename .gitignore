@@ -8,6 +8,7 @@
 *.pyc
 *~
 
+bin
 dist/
 docs/_build/
 docs/locale/
@@ -17,7 +18,7 @@ tests/.coverage
 build/
 tests/report/
 myenv/
-assets/bundles
+
 
 webpack-stats.json
 

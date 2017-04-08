@@ -29,7 +29,7 @@ router.register(r'trims', views.TrimViewSet)
 
 urlpatterns = [
     url(r'admin/', admin.site.urls),
-    url(r'home', csrf_exempt(TemplateView.as_view(template_name='index.html'))),
+    url(r'', csrf_exempt(TemplateView.as_view(template_name='index.html'))),
     url(r'api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

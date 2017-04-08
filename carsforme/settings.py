@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     'car'
 ]
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
+
+STATIC_URL = '/car/static/'
+
 STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
     os.path.join(BASE_DIR, 'assets'),
@@ -49,7 +54,7 @@ STATICFILES_DIRS = (
 
 WEBPACK_LOADER = {
     'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'bundles/',
+        'BUNDLE_DIR_NAME': 'assets/bundles/',
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
     }
 }
@@ -136,9 +141,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
-STATIC_URL = '/static/'

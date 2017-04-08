@@ -1,7 +1,7 @@
 {
   "name": "carsforme",
   "version": "1.0.0",
-  "description": "flex-project",
+  "description": "Find the car to meet your needs!",
   "main": "index.js",
   "directories": {
     "doc": "docs"
