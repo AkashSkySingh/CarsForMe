@@ -4,5 +4,5 @@ from . import views
 
 app_name = 'car'
 urlpatterns = [
-    url(r'^$', views.values, name='values'),
+    url(r'^col-values', views.values, name='values'),
 ]

@@ -10,7 +10,7 @@ export const fetchCars = car => {
 export const fetchColValues = col => {
   return $.ajax({
     method: 'GET',
-    url: 'values',
+    url: 'cardata/col-values',
     data: {col}
   });
 };
