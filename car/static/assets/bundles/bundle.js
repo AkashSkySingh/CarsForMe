@@ -8956,6 +8956,14 @@ var fetchCars = exports.fetchCars = function fetchCars(car) {
     url: "api/trims/?" + query
   });
 };
+
+var fetchColValues = exports.fetchColValues = function fetchColValues(col) {
+  return $.ajax({
+    method: 'GET',
+    url: 'values',
+    data: { col: col }
+  });
+};
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(183)))
 
 /***/ },
