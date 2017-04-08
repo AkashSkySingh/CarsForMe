@@ -5,7 +5,6 @@ from django.shortcuts import render_to_response, redirect
 
 # Create your views here.
 
-
 class MakeViewSet(viewsets.ModelViewSet):
     queryset = Make.objects.all()
     serializer_class = MakeSerializer
@@ -64,3 +63,10 @@ class TrimViewSet(viewsets.ModelViewSet):
         "make_display",
         "make_country"
     )
+
+def values(request):
+    my_list = []
+    col_name = request.GET.get('col')
+    for el in list(Trim.objects.values(col_name).distinct(col_name)):
+        my_list.append(el[col_name])
+    return JsonResponse(my_list, safe=False)

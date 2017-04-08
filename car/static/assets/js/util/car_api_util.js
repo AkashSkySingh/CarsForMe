@@ -6,3 +6,11 @@ export const fetchCars = car => {
     url: `api/trims/?${query}`
   });
 };
+
+export const fetchColValues = col => {
+  return $.ajax({
+    method: 'GET',
+    url: 'values',
+    data: {col}
+  });
+};
