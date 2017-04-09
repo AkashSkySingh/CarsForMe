@@ -1,0 +1,18 @@
+import React from 'react';
+import { Link } from 'react-router';
+
+class CarListItem extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <Link to={`cars/${this.props.id}`}>this.props.details.model_name</Link>
+      </div>
+    )
+  }
+}
+
+export default CarListItem;

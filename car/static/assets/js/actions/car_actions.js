@@ -10,3 +10,8 @@ export const receiveCar = car => ({
 export const fetchCar = id => dispatch => (
   CarAPIUtil.fetchCars({id}).then(res => dispatch(receiveCar(res[0])))
 );
+
+export const fetchCars = data => dispatch => (
+  CarAPIUtil.fetchCars(data)
+    // .then(res => dispatch(receiveCars(res)))
+);

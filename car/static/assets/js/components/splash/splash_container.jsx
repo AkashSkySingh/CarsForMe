@@ -2,16 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Splash from './splash';
 
-import { fetchCars } from '../../actions/car_actions';
+import { receiveSearchParams } from '../../actions/search_actions';
 
-const mapStateToProps = state => {
-  return ({
-    
-  });
-};
+const mapStateToProps = state => ({
+  searchParams: state.searchParams
+});
 
 const mapDispatchToProps = dispatch => ({
-  fetchCars: (cars) => (dispatch(fetchCars(cars)))
+  setSearchParams: (params) => dispatch(receiveSearchParams(params))
 });
 
 export default connect(
