@@ -2,15 +2,15 @@ import React from 'react';
 import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
 
 const params = {v: '3.exp', key: 'AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs'};
-const myurl = "http://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.773972,-122.431297&radius=300000&keyword=Toyota%20Dealership&type=car_deal&key=AIzaSyBMSQZk1iJVOEQmUILEuzFiXjyEPVHtX8w"
+
 
 
 class CarDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { link: null, position: "unknown", lng: null, lat: null, locations: {} };
-
+    this.state = { picture: null, position: "unknown", lng: null, lat: null, locations: {} };
   }
+
 
   componentWillMount() {
     this.props.fetchCar({id: this.props.id});
@@ -44,18 +44,35 @@ class CarDetail extends React.Component {
     let that = this;
     $.ajax({
       type: 'GET',
-      url: `https://www.googleapis.com/customsearch/v1?key=AIzaSyCzWOe2mBvhD-gSITuOQc_oMKY1bSx91IY&cx=003264831380035041777:hi4v6rphnr8&q=2017%20Ford%20${this.props.details.model_name}&searchType=image&imgSize=large&alt=json`,
+      data: {
+        imgSize: "large",
+        alt: "json",
+        searchType: "image",
+        q: `2017 ${that.props.details.model_make_id} ${that.props.details.model_name}`,
+        cx: "003264831380035041777:hi4v6rphnr8",
+        key: "AIzaSyCzWOe2mBvhD-gSITuOQc_oMKY1bSx91IY"
+      },
+      url: `https://www.googleapis.com/customsearch/v1`,
       success: function(data){
-        that.setState({link: data.items[0].link});
+        that.setState({picture: data.items[0].link});
       }
     });
   };
 
   getDealerships() {
     let that = this;
+    debugger;
+    console.log(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.773972,-122.431297&radius=300000&keyword=${this.props.details.model_make_id}%20Dealership&type=car_deal&key=AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs`);
     $.ajax({
       type: 'GET',
-      url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.773972,-122.431297&radius=300000&keyword=Honda%20Dealership&type=car_deal&key=AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs',
+      data: {
+        location: "37.773972,-122.431297",
+        radius: "300000",
+        keyword: `Acura Dealership`,
+        type: "car_deal",
+        key: "AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs"
+      },
+      url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json`,
       success: function(data){
         that.setState({locations: data.results});
       }
@@ -64,15 +81,24 @@ class CarDetail extends React.Component {
 
   render() {
     const { details } = this.props;
+    let markers;
+    // let text;
+    if (this.state.locations.length !== undefined) {
+      markers = Object.keys(this.state.locations).map( (id, index) => {
+        return <Marker key={index}
+                  lat={this.state.locations[id].geometry.location.lat}
+                  lng={this.state.locations[id].geometry.location.lng}
+                />
+      });
+    }
 
     const { model_year, model_make_id, model_name, model_trim } = details;
-
     return(
       <div className="car-detail-container">
         <div className="details-box">
           <div className="detail-image">
             <img />
-            {this.state.link ? <img width="600" src={`${this.state.link}`} /> : "Error: No Car Selected" }
+            {this.state.picture ? <img width="600" src={`${this.state.picture}`} /> : "Error: No Car Selected" }
 
           </div>
 
@@ -117,30 +143,24 @@ class CarDetail extends React.Component {
         </div>
 
         <div className="dealerships">
+          {this.state.position}
           <Gmaps
             width={'500px'}
             height={'500px'}
             lat={this.state.lat}
             lng={this.state.lng}
-            zoom={12}
-            loadingMessage={'Be happy.. Loading Map'}
+            zoom={10}
+            loadingMessage={`Loading Map Nearest ${details.model_make_id} Dealerships`}
             params={params}
             onMapCreated={this.onMapCreated}>
-            <Marker
-              lat={this.state.lat}
-              lng={this.state.lng}
-              draggable={true}
-              onDragEnd={this.onDragEnd} />
-            <InfoWindow
-              lat={this.state.lat}
-              lng={this.state.lng}
-              content={'Hello, React :)'}
-              onCloseClick={this.onCloseClick} />
-            <Circle
+
+              {markers}
+
+            {/* <Circle
               lat={this.state.lat}
               lng={this.state.lng}
               radius={500}
-              onClick={this.onClick} />
+              onClick={this.onClick} /> */}
           </Gmaps>
         </div>
       </div>
