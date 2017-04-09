@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { hashHistory } from 'react-router';
 
 class Splash extends React.Component {
   constructor(props){
@@ -13,6 +13,11 @@ class Splash extends React.Component {
 
   searchType() {
 
+  }
+
+  handleClick(bodyType) {
+    this.props.setSearchParams({model_body: bodyType});
+    hashHistory.push("/carlist");
   }
 
   render(){
@@ -32,7 +37,7 @@ class Splash extends React.Component {
           <ul className="splash-list">
 
 
-            <li className="splash-item" >
+            <li className="splash-item" onClick={() => this.handleClick("Convertible")}>
               <img src="https://res.cloudinary.com/nightstock/image/upload/s--nW0VNNJL--/v1491581600/convertible_ovdrj1.png" className="splash-img"/>
               <h2>Convertible</h2>
             </li>
