@@ -6,7 +6,7 @@ class CarDetail extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchCar({id: this.props.id})
+    this.props.fetchCar({id: this.props.id});
   }
 
   componentWillReceiveProps(nextProps) {
@@ -71,7 +71,7 @@ class CarDetail extends React.Component {
         <div className="dealerships">
         </div>
       </div>
-    )
+    );
   }
 }
 

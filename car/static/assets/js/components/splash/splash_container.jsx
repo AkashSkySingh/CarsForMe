@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setSearchParams: (params) => dispatch(receiveSearchParams(params))
+
 });
 
 export default connect(
