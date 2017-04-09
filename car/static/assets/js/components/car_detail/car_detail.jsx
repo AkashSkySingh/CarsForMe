@@ -61,8 +61,6 @@ class CarDetail extends React.Component {
 
   getDealerships() {
     let that = this;
-    debugger;
-    console.log(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.773972,-122.431297&radius=300000&keyword=${this.props.details.model_make_id}%20Dealership&type=car_deal&key=AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs`);
     $.ajax({
       type: 'GET',
       data: {
@@ -81,6 +79,7 @@ class CarDetail extends React.Component {
 
   render() {
     const { details } = this.props;
+    console.log(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.773972,-122.431297&radius=300000&keyword=${this.props.details.model_make_id}%20Dealership&type=car_deal&key=AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs`);
     let markers;
     // let text;
     if (this.state.locations.length !== undefined) {
@@ -99,42 +98,37 @@ class CarDetail extends React.Component {
           <div className="detail-image">
             <img />
             {this.state.picture ? <img width="600" src={`${this.state.picture}`} /> : "Error: No Car Selected" }
-
           </div>
 
           <div className="detail-info">
             <header>{details.model_year} {details.model_make_id} {details.model_name}</header>
             <span>{details.model_trim}</span>
             <div className="detail-specs">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Transmission:</td>
-                    <td>{details.model_transmission_type}</td>
-                  </tr>
-                  <tr>
-                    <td>Drive:</td>
-                    <td>{details.model_drive}</td>
-                  </tr>
-                </tbody>
-              </table>
+                <div>
+                  <ul>
+                    <li>Transmission:</li>
+                    <li>{details.model_ulansmission_type}</li>
+                  </ul>
+                  <ul>
+                    <li>Drive:</li>
+                    <li>{details.model_drive}</li>
+                  </ul>
+                </div>
 
-              <table>
-                <tbody>
-                  <tr>
-                    <td>City MPG:</td>
-                    <td>{details.model_lkm_city}</td>
-                  </tr>
-                  <tr>
-                    <td>Highway MPG:</td>
-                    <td>{details.model_lkm_hwy}</td>
-                  </tr>
-                  <tr>
-                    <td>Mixed MPG:</td>
-                    <td>{details.model_lkm_mixed}</td>
-                  </tr>
-                </tbody>
-              </table>
+                <div>
+                  <ul>
+                    <li>City MPG:</li>
+                    <li>{details.model_lkm_city}</li>
+                  </ul>
+                  <ul>
+                    <li>Highway MPG:</li>
+                    <li>{details.model_lkm_hwy}</li>
+                  </ul>
+                  <ul>
+                    <li>Mixed MPG:</li>
+                    <li>{details.model_lkm_mixed}</li>
+                  </ul>
+                </div>
             </div>
           </div>
         </div>
