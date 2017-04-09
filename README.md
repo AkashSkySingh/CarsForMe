@@ -3,7 +3,7 @@
 - [CarsForMe: Live][live]
 - [CarsForMe: Github][github]
 
-[live]: https://www.CarsForMe.net
+[live]: http://www.CarsForMe.net
 [github]: https://github.com/AkashSkySingh/CarsForMe
 
 ## Background
