@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Splash from './splash';
+import CarList from './car_list';
 
-import { fetchCars } from '../../actions/car_actions';
+import { fetchCars } from '../actions/car_actions';
 
 const mapStateToProps = state => {
   return ({
-
+    carList: state.carList
   });
 };
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchCars: data => dispatch(fetchCars(data))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Splash);
+)(CarList);
