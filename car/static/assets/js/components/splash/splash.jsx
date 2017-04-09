@@ -57,7 +57,7 @@ class Splash extends React.Component {
               <h2>Mini - Van</h2>
             </li>
 
-            <li className="splash-item">
+            <li className="splash-item" onClick={() => this.handleClick('Compact Cars')}>
               <img src="https://res.cloudinary.com/nightstock/image/upload/s--Lpzu9z_J--/v1491581600/sedan_naeef1.png" className="splash-img"/>
               <h2>Sedan</h2>
             </li>

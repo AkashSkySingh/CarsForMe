@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CarList from './car_list';
 
-import { fetchCars } from '../actions/car_actions';
+import { fetchCars } from '../../actions/car_actions';
 
 const mapStateToProps = state => {
   return ({
-    carList: state.carList
+    carList: state.carList,
+    searchParams: state.searchParams
   });
 };
 
