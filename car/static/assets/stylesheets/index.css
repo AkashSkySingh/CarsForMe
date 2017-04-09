@@ -1,3 +1,9 @@
+@import './header.css';
+@import './footer.css';
+@import './splash.css';
+@import './car_list.css';
+@import './car_show.css';
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -17,17 +23,30 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  font-family: 'Cabin', sans-serif;
 }
 
-#root {
+.root-follow {
   display: flex;
   flex-direction: row;
   margin: 0 auto;
   min-width: 800px;
-  max-width: 1000px;
 }
 
-/* Header Related CSS */
-/* Splash Related CSS */
-/* Car List Page */
-/* Car Detail Page */
+/*
+  Font Types:
+  font-family: 'Cabin', sans-serif;
+  font-family: 'Dosis', sans-serif;
+*/
+
+/*
+  Palette:
+
+*/
+
+/*
+  logo_img: http://res.cloudinary.com/nightstock/image/upload/s--huWnN3j0--/v1491701654/automobile-1300231_960_720_sw8xc3.png
+*/

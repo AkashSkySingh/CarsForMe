@@ -1,0 +1,50 @@
+.splash-middle {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.splash-wrap {
+  max-width: 800px;
+  vertical-align: middle;
+  text-align: center;
+  margin: 300px auto 100px auto;
+}
+
+.splash-wrap h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px white;
+}
+
+.splash-wrap h3 {
+  font-family: 'Dosis', sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+  text-shadow: 0 0 10px white;
+}
+
+.splash-table {
+  max-width: 600px;
+  margin: 0 auto 100px auto;
+}
+
+.splash-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.splash-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100px;
+  padding: 25px;
+}
+
+.splash-img {
+  width: 100px;
+  margin: 0 auto;
+}

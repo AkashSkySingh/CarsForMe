@@ -1,0 +1,36 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  margin: 5px auto;
+  padding: 0;
+  min-width: 800px;
+}
+
+.linkedin {
+  display: flex;
+  flex-direction: row;
+  min-width: 300px;
+}
+
+.linkedin-item {
+  font-family: 'Dosis', sans-serif;
+}
+
+h4 {
+  margin: 5px auto 5px auto;
+}
+
+p {
+  margin: 5px auto 5px auto;
+  font-family: 'Dosis', sans-serif;
+}
