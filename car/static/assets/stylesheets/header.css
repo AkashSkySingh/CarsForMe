@@ -11,7 +11,7 @@ header {
   position: fixed;
   height: 70px;
   min-width: 800px;
-  background-color: rgba(0, 0, 0, .2);
+  background-color: rgba(255, 255, 255, .8);
 }
 
 .anchors {
@@ -23,7 +23,7 @@ header {
 }
 
 .anchors:hover {
-  background-color: rgba(255, 255, 255, .2);
+  background-color: rgba(255, 255, 255, .8);
   border-radius: 25px;
 }
 

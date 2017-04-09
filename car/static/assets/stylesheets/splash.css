@@ -9,25 +9,32 @@
   max-width: 800px;
   vertical-align: middle;
   text-align: center;
-  margin: 300px auto 100px auto;
+  margin: 250px auto 70px auto;
 }
 
 .splash-wrap h1 {
-  font-size: 40px;
+  font-family: 'Cabin', sans-serif;
+  font-size: 60px;
   margin-bottom: 10px;
-  text-shadow: 0 0 10px white;
-}
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  color: white;
 
-.splash-wrap h3 {
-  font-family: 'Dosis', sans-serif;
-  font-size: 16px;
-  margin-top: 10px;
-  text-shadow: 0 0 10px white;
 }
 
 .splash-table {
   max-width: 600px;
   margin: 0 auto 100px auto;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 30px;
+}
+
+.splash-table h3 {
+  font-family: 'Cabin', sans-serif;
+  text-align: center;
+  font-size: 28px;
+  padding-top: 10px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
 }
 
 .splash-list {
@@ -41,7 +48,18 @@
   flex-direction: column;
   text-align: center;
   width: 100px;
-  padding: 25px;
+  margin: 15px;
+  padding: 9px;
+  background-color: rgba(255, 255, 255, .7);
+  border-radius: 25px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.splash-item:hover {
+  background-color: rgba(255, 255, 255, .9);
+  border: 1px solid black;
+
 }
 
 .splash-img {

@@ -22,13 +22,15 @@ class Splash extends React.Component {
           <h1 className="splash-text">
             Finding a car that fits has never been so easy!
           </h1>
-          <h3 className="splash-text">
-            Select a body type below to start right away!
-          </h3>
         </div>
 
         <div className="splash-table">
+          <h3 className="splash-text">
+            Select a body type below to start right away!
+          </h3>
+
           <ul className="splash-list">
+
 
             <li className="splash-item" >
               <img src="https://res.cloudinary.com/nightstock/image/upload/s--nW0VNNJL--/v1491581600/convertible_ovdrj1.png" className="splash-img"/>
