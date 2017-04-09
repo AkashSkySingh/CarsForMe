@@ -2,6 +2,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 50px;
   background-color: rgba(255, 255, 255, .8);
 }
 
@@ -11,15 +12,17 @@ footer ul {
   flex-direction: row;
   justify-content: space-around;
   text-align: center;
-  margin: 5px auto;
   padding: 0;
+}
+
+.footer-list {
+  margin: 5px auto;
   min-width: 800px;
 }
 
 .linkedin {
-  display: flex;
-  flex-direction: row;
   min-width: 300px;
+  margin: auto;
 }
 
 .linkedin-item {
