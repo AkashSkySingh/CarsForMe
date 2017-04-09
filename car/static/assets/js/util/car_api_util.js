@@ -1,16 +1,15 @@
-export const fetchCars = car => {
-  let keys = Object.keys(car);
-  let query = keys.map( key => `${key}=${car[key]}`).join("&");
-  return $.ajax({
+export const fetchCars = data => (
+  $.ajax({
     method: "GET",
-    url: `api/trims/?${query}`
-  });
-};
+    url: `api/trims/`,
+    data: data
+  })
+);
 
-export const fetchColValues = col => {
-  return $.ajax({
+export const fetchColValues = col => (
+  $.ajax({
     method: 'GET',
     url: 'cardata/col-values',
     data: {col}
-  });
-};
+  })
+);
