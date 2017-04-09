@@ -9,8 +9,10 @@ import { fetchCars, fetchColValues } from './util/car_api_util';
 window.fetchCars = fetchCars;
 window.fetchColValues = fetchColValues;
 
+const store = configureStore();
+window.store = store;
+
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });

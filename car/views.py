@@ -16,7 +16,7 @@ class CarModelViewSet(viewsets.ModelViewSet):
     queryset = CarModel.objects.all()
     serializer_class = CarModelSerializer
     filter_backends = (filters.DjangoFilterBackend,)
-    filter_fields = ('model_make_id', 'model_name')
+    filter_fields = ('id', 'model_make_id', 'model_name')
 
 
 class TrimViewSet(viewsets.ModelViewSet):
@@ -24,7 +24,7 @@ class TrimViewSet(viewsets.ModelViewSet):
     serializer_class = TrimSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = (
-        "model_make_id",
+        "id",
         "model_make_id",
         "model_name",
         "model_trim",

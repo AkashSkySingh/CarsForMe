@@ -7,6 +7,6 @@ export const receiveCar = car => ({
   car
 });
 
-export const fetchCars = car => dispatch => (
-  CarAPIUtil.fetchCar(car).then(res => dispatch(receiveCar(res)))
+export const fetchCar = id => dispatch => (
+  CarAPIUtil.fetchCars({id}).then(res => dispatch(receiveCar(res[0])))
 );

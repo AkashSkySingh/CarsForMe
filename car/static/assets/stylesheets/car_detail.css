@@ -1,0 +1,27 @@
+.car-detail-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.detail-image {
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-specs {
+  display: flex;
+  flex-direction: row;
+}
