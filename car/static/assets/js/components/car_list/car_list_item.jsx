@@ -11,10 +11,10 @@ class CarListItem extends React.Component {
 
   render() {
     return (
-      <div>
-        <Link to={`cars/${this.props.id}`}>this.props.details.modelName</Link>
+      <div className="carlist-item">
+        <Link className="carlist-link" to={`cars/${this.props.id}`}>this.props.details.modelName</Link>
       </div>
-    )
+    );
   }
 }
 

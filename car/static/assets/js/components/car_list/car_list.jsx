@@ -14,17 +14,17 @@ class CarList extends React.Component {
   render() {
     const {carList} = this.props;
     const list = Object.keys(carList).map( (id, index) => {
-      return <CarListItem key={index}
+      return (<CarListItem key={index}
         id={carList[id].id}
-        modelName={carList[id].model_name}/>
-    })
+        modelName={carList[id].model_name}/>);
+    });
     return (
-      <div>
-        <ul>
+      <div className="carlist-middle">
+        <ul className="carlist">
           {list}
         </ul>
       </div>
-    )
+    );
   }
 
 }
