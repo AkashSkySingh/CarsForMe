@@ -1,8 +1,15 @@
 import React from 'react';
+import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+
+const params = {v: '3.exp', key: 'AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs'};
+const myurl = "http://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.773972,-122.431297&radius=300000&keyword=Toyota%20Dealership&type=car_deal&key=AIzaSyBMSQZk1iJVOEQmUILEuzFiXjyEPVHtX8w"
+
 
 class CarDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { link: null, position: "unknown", lng: null, lat: null, locations: {} };
+
   }
 
   componentWillMount() {
@@ -15,6 +22,45 @@ class CarDetail extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.getPosition();
+    this.getCarPicture();
+    this.getDealerships();
+  }
+
+  getPosition() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        var latlng = JSON.stringify(position.coords.latitude) + "," +
+                     JSON.stringify(position.coords.longitude);
+        this.setState({position: latlng, lat: position.coords.latitude, lng: position.coords.longitude });
+      },
+      (error) => alert(JSON.stringify(error)),
+      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+    );
+  };
+
+  getCarPicture() {
+    let that = this;
+    $.ajax({
+      type: 'GET',
+      url: `https://www.googleapis.com/customsearch/v1?key=AIzaSyCzWOe2mBvhD-gSITuOQc_oMKY1bSx91IY&cx=003264831380035041777:hi4v6rphnr8&q=2017%20Ford%20${this.props.details.model_name}&searchType=image&imgSize=large&alt=json`,
+      success: function(data){
+        that.setState({link: data.items[0].link});
+      }
+    });
+  };
+
+  getDealerships() {
+    let that = this;
+    $.ajax({
+      type: 'GET',
+      url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.773972,-122.431297&radius=300000&keyword=Honda%20Dealership&type=car_deal&key=AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs',
+      success: function(data){
+        that.setState({locations: data.results});
+      }
+    });
+  }
 
   render() {
     const { details } = this.props;
@@ -26,6 +72,8 @@ class CarDetail extends React.Component {
         <div className="details-box">
           <div className="detail-image">
             <img />
+            {this.state.link ? <img width="600" src={`${this.state.link}`} /> : "Error: No Car Selected" }
+
           </div>
 
           <div className="detail-info">
@@ -69,6 +117,31 @@ class CarDetail extends React.Component {
         </div>
 
         <div className="dealerships">
+          <Gmaps
+            width={'500px'}
+            height={'500px'}
+            lat={this.state.lat}
+            lng={this.state.lng}
+            zoom={12}
+            loadingMessage={'Be happy.. Loading Map'}
+            params={params}
+            onMapCreated={this.onMapCreated}>
+            <Marker
+              lat={this.state.lat}
+              lng={this.state.lng}
+              draggable={true}
+              onDragEnd={this.onDragEnd} />
+            <InfoWindow
+              lat={this.state.lat}
+              lng={this.state.lng}
+              content={'Hello, React :)'}
+              onCloseClick={this.onCloseClick} />
+            <Circle
+              lat={this.state.lat}
+              lng={this.state.lng}
+              radius={500}
+              onClick={this.onClick} />
+          </Gmaps>
         </div>
       </div>
     );
