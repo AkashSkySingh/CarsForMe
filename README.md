@@ -1,4 +1,4 @@
-# CarsForMe: DEVELOPMENT_README
+# CarsForMe: PRODUCTION_README
 
 - [CarsForMe: Live][live]
 - [CarsForMe: Github][github]
@@ -6,132 +6,136 @@
 [live]: https://www.CarsForMe.net
 [github]: https://github.com/AkashSkySingh/CarsForMe
 
-## Background
+## Features and Implementation
 
-The premise of this project is to help a new car buyer narrow down the selection of vehicles, eventually to find a car that fits their needs.
 
-To new car buyers, researching potential vehicle choices can be an alien, and often burdensome task. Often times, a new car buyer will have to scour many available dealership sites to find relevant information for vehicles of their interest. This web app will be a one-stop spot  for detailed information relating to the newest vehicle models available on the market.
+### Filter by Car Size
 
-The integration of CarQueryAPI with our personal database which has relevant pricing information will provide an overall picture of what a new car buyer will expect of a vehicle on the market. Our users will first input their desired qualities in a search form, and narrow down their vehicles to a list. Upon selecting any car from their list, using their registered information, as well as the location specific information a user entered upon registration, a list of nearby car dealerships with said vehicle will be shown.
+[image here of splash page car size containers here]
 
-## Minimum Viable Product
+All cars are stored as `trims` with columns like `model_make_id` which includes the car make, `model_name`, `doors`, `model_engine_cc`, etc. When a user clicks a model size, a API call gets sent and retrieves all cars that matches the size on the `model_body: "Compact Cars"`.
 
-- [ ] Django/Python Back-End
-- [ ] Car list generation w/ price via CarQuery/Django Database
-- [ ] In-depth car detail via Car Query API
-- [ ] Map of nearby dealerships of similar make to car selected
+Sample State for Car Detail for each `model_trim`:
 
-## Design Docs
-* [View Wireframes][wireframes]
-* [Component Hierarchy][components]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-* [Sample State][sample-state]
-
-[wireframes]: docs/wireframes
-[components]: docs/component_hierarchy.md
-[sample-state]: docs/sample_state.md
-[api-endpoints]: docs/api_endpoints.md
-[schema]: docs/schema.md
-
-## Wireframes
-
-![image of Home Splash Page](/docs/wireframes/Home%20Page_Splash.png)
-![image of Results Page](/docs/wireframes/Results.png)
-![image of Show Page](/docs/wireframes/Show.png)
-
-## Technologies & Technical Challenges
-
-This web app will be implemented using Django framework and Python language in the back-end with a React Redux front end for components.
-
-Additionally, this web app employs CarQuery API to provide detailed information tying it to a locally hosted join table for car-related pricing information. This, in concert with additional user specific information, will provide a rendered result for local dealerships that provide the vehicle for an in-person review if required by the user.
-
-The primary technical challenges will be:
-
-- Adjusting to Django framework with a new language of Python. All group members will be learning this language and framework over the timeline of this project.
-- Adequately hosting and problem solving issues amongst the integration and cooperation of different APIs. Query results from one API will be used with additional information for another API/AJAX request.
-- Another possible technical issue is getting Google Places to accept relevant  query information to produce the necessary dealership information.
-
-### CarQueryApi Implementation
-
+```js
+{
+    "id": 1,
+    "model_id": "69703",
+    "model_make_id": "Acura",
+    "model_name": "ILX",
+    "model_trim": "4dr Sedan (2.0L 4cyl 5A)",
+    "model_year": "2017",
+    "model_body": "Compact Cars",
+    "model_engine_position": "",
+    "model_engine_cc": "2000",
+    "model_engine_cyl": "4",
+    "model_engine_type": "Inline",
+    "model_engine_valves_per_cyl": "4",
+    "model_engine_power_ps": "150",
+    "model_engine_power_rpm": null,
+    "model_engine_torque_nm": "140",
+    "model_engine_torque_rpm": null,
+    "model_engine_bore_mm": null,
+    "model_engine_stroke_mm": null,
+    "model_engine_compression": "10.6",
+    "model_engine_fuel": "Premium Unleaded (Required)",
+    "model_top_speed_kph": null,
+    "model_0_to_100_kph": null,
+    "model_drive": "Front Wheel Driv",
+    "model_transmission_type": "Automatic",
+    "model_seats": null,
+    "model_doors": "4",
+    "model_weight_kg": "2955",
+    "model_length_mm": null,
+    "model_width_mm": null,
+    "model_height_mm": null,
+    "model_wheelbase_mm": null,
+    "model_lkm_hwy": "35.0",
+    "model_lkm_mixed": "28.0",
+    "model_lkm_city": "24.0",
+    "model_fuel_cap_l": "13",
+    "model_sold_in_us": "1",
+    "model_co2": null,
+    "model_make_display": "Acura",
+    "make_display": "Acura",
+    "make_country": "USA"
+},  
 ```
-$.getJSON("https://www.carqueryapi.com/api/0.3/" + "?callback=?", {cmd:"getInfo", year: 2017, make: 'toyota', model:'camry'}, function(data) {
-}
+
+
+### RESTful API to query CarsForMe Database
+
+![api screenshot](https://res.cloudinary.com/booklog/image/upload/c_scale,h_360/v1491799709/Screen_Shot_2017-04-09_at_9.44.26_PM_yepusu.png)
+
+Easy to use API to query the CarsForMe database. The response is in API view (JSON view optional). Allowed paths are api/makes, api/carmodels , and api/trims. The API query format is in:
+
+  carsforme.net/api/`model`/?`filters`=ExactTerm&`filters`=ExactTerm
+
+Base API:
+
+https://www.carsforme.net/api/
+
+Sample queries:
+
+List of all models in database
+
+https://www.carsforme.net/api/carmodels/
+
+List of all Acura Models
+
+https://www.carsforme.net/api/carmodels/?model_make_id=Acura
+
+List of all Acura Model with Trims that have a 4 cylinder engine
+
+https://www.carsforme.net/api/trims/?model_make_id=Acura&model_engine_cyl=4
+
+List of all BMW Model with Trims that have a Inline-6 Engine (Not V6)
+
+https://www.carsforme.net/api/trims/?model_make_id=BMW&model_engine_type=Inline&model_engine_cyl=6
+
+
+### Django backend
+```js
+
+class TrimSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Trim
+        fields = ('id', "model_id", "model_make_id", "model_name", "model_trim", "model_year", "model_body", "model_engine_position", "model_engine_cc", "model_engine_cyl", "model_engine_type", "model_engine_valves_per_cyl", "model_engine_power_ps", "model_engine_power_rpm", "model_engine_torque_nm", "model_engine_torque_rpm", "model_engine_bore_mm", "model_engine_stroke_mm", "model_engine_compression", "model_engine_fuel", "model_top_speed_kph", "model_0_to_100_kph", "model_drive", "model_transmission_type", "model_seats", "model_doors", "model_weight_kg", "model_length_mm", "model_width_mm", "model_height_mm", "model_wheelbase_mm", "model_lkm_hwy", "model_lkm_mixed", "model_lkm_city", "model_fuel_cap_l", "model_sold_in_us", "model_co2", "model_make_display", "make_display", "make_country")
 ```
 
-The variable, getInfo, can be anything from makes, models, trims, and years for the various cars we need more information on, and this information will then be seeded into our database for potential user use. 
 
-## Group Members and Work Breakdown
-Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All members are expected to learn Django and Python, as well as complete the following tasks:
+HyperLinkedModelSerializers in Django to filter the results. The fields above can also be applied as the filter to get the results that in the query.
 
-- Aaron will complete the following:
-  + [ ] Setting up Django
-  + [ ] Splash page general outline and award winning cars components
-  + [ ] Result page general outline and filter components
-  + [ ] Car detail container and other show page components
-  + [ ] Refactoring code
-- Akash will complete the following:
-  + [ ] Setting up Django
-  + [ ] Car list index container and car list item components
-  + [ ] Integrate Google Places/Maps API to show dealerships
-  + [ ] Styling
-  + [ ] Setting up domain and pushing to production
-- Khalil will complete the following:
-  + [ ] Set up database using CarQuery API and seeding
-  + [ ] Pricing information for cars 
-  + [ ] Implementing Routes/Controllers in the backend
-  + [ ] Search functionality and filtering the results
-  + [ ] Styling
 
-## Implementation Timeline
+### Google Custom Search Engine, Maps, and Places API
 
-### Phase 1: Django up and running
+[image of google maps here]
 
-**Objective:** The main goal today is to get Django up and running along with some data verified and seeded. Any extra time would be spent on implementing user authentication. By the end of the day, we will have:
- - [ ] Set up Django and get a splash page up on local host (Aaron + Akash)
- - [ ] Consolidate data of cars and import to database using CarQuery API (Khalil)
- - [ ] Final decision on car and user Models, Validations and Routes (group)
+On enter of the car detail page, a AJAX request using a Google Custom Search Engine results in a image search over a car website for the picture of the car.
 
-### Phase 2: Complete Auth and Splash
+On the car detail page, there is a html5 request for the geolocation. If the user accepts, the map shows the nearest 20 places that match the `model_make_id` of the car that is being shown. The map is zoomed out to around 180miles due to car dealerships being spread out.
 
-**Objective:** Work on completing user authentication and finishing the splash page. By the end of the day, we will have:
- - [ ] Complete user authentication (be able to login and signup accounts (Aaron + Akash)
- - [ ] Finish splash page with fake award cars data on the bottom (Akash + Aaron)
- - [ ] Verify seeded data and help complete the two tasks above (Khalil)
- - [ ] Implementing Routes/Controllers in the backend (Khalil)
- 
-### Phase 3: Car Result Page and Bug Testing
 
-**Objective:** Start working on the results show page where there’s a filter side bar and a car index container based on the filter selection. By the end of the day, we will have:
- - [ ] Create the results page with filter container on the left (Khalil + Aaron)
- - [ ] Implement search functionality and filtering the results (Khalil + Aaron)
- - [ ] Create the Car List Index container with mini car detail container on the right (Akash)
- - [ ] Check Phase 1 and 2 work for bugs (Aaron)
+### APIs & Libraries Used
+- Google Custom Search Engine API
+- Google Maps API
+- Google Places API
+- React-GMaps
+- Django REST Framework
 
-### Phase 4:  Show Page and Google API integration
 
-**Objective:** Car detail/show page with google API for dealerships . By the end of the day, we will have:
- - [ ] Implement a car detail container where it shows the car specs (Aaron)
- - [ ] Implement Google Maps/Places to get the nearest 3 dealerships under the Car’s Make based on the users location (from profile) (Akash + Khalil)
- - [ ] Check Phase 3 work for bugs (Khalil)
 
-### Phase 5: Clean-Up and Testing
+## Future Directions for the Project
 
-**Objective:** Focus on polishing the final product, ensuring a bug free application. By the end of the day, we will have:
- - [ ] Finish Styling (Khalil + Akash)
- - [ ] Verify seed data (Khalil)
- - [ ] Refactor code (Aaron)
- - [ ] Final test and features (Khalil)
- - [ ] Complete the Production readme (Akash)
- - [ ] Push to prod (Akash)
+In addition to the features already implemented, the next features are
+outlined below:
 
-### Bonus Features (TBD)
-- [ ] Provide user vehicle following/favoriting functionality
-- [ ] Allow user to change location to search nearby dealers for selected vehicle
-- [ ] Compare vehicle side-by-side functionality
 
-## Technologies Used:
-- [ ] Google Places API
-- [ ] Google Maps API
-- [ ] Car Query API
-- [ ] Django/Python
+### Search bar
+Ability to enter the car model instead of selecting the predefined car shape,
+for example, you can search "Civic" and the results page will bring up the car list full of Civic trims.
+
+### Pricing
+Ability to see the car base price under the results show page. Edmunds API
+provide a "True Market Value". If we are able to obtain approval to Edmunds API,
+we can implement the price feature.
