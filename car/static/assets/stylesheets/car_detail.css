@@ -1,27 +1,91 @@
-.car-detail-container {
+.detail-middle, .detail-wrap, .detail-img, .detail-text, .detail-divs, h2, h3, h4, .detail-dealership, .detail-gmap, .detail-item {
+  color: white;
+}
+
+
+.detail-middle {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.details-box {
-  display: flex;
-  flex-direction: row;
-}
-
-.detail-image {
-  width: 200px;
-  height: 200px;
-  background-color: gray;
-}
-
-.detail-info {
+  height: 100%;
+  vertical-align: middle;
+  margin: auto;
   display: flex;
   flex-direction: column;
 }
 
-.detail-specs {
+.detail-wrap {
+  max-width: 1000px;
+  min-width: 1000px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, .7);
+  border-radius: 30px 30px 0 0;
+  position: relative;
+  top: 10%;
+  left: 0%;
+  min-height: 350px;
+  height: 350px;
   display: flex;
   flex-direction: row;
+}
+
+.detail-img {
+  width: 600px;
+  min-width: 600px;
+  height: 300px;
+  margin: 25px 50px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 25px 25px 0;
+  min-width: 260px;
+  max-width: 280px;
+}
+
+.detail-text {
+  margin: 5px 0;
+}
+
+.detail-divs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.detail-item h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.detail-item h3 {
+  font-size: 22px;
+}
+
+.detail-item h4 {
+  font-size: 16px;
+  font-family: 'Dosis', sans-serif;
+}
+
+.detail-dealership {
+  max-width: 1000px;
+  width: 1000px;
+  margin: 100px auto;
+  background-color: rgba(0, 0, 0, .7);
+  border-radius: 0 0 30px 30px;
+  position: relative;
+  left: 0%;
+  min-height: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-dealership h2 {
+  font-size: 25px;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.detail-gmap {
+  margin: 10px 50px;
 }

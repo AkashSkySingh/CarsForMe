@@ -6,11 +6,7 @@ import configureStore from './store/store';
 
 import { fetchCars, fetchColValues } from './util/car_api_util';
 
-window.fetchCars = fetchCars;
-window.fetchColValues = fetchColValues;
-
 const store = configureStore();
-window.store = store;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');

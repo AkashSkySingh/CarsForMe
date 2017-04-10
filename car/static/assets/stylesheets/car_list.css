@@ -19,6 +19,7 @@
 .carlist-table {
   max-width: 800px;
   margin: auto;
+  padding-bottom: 65px;
   background-color: rgba(0, 0, 0, .5);
   border-radius: 0 30px 30px 0;
   position: relative;

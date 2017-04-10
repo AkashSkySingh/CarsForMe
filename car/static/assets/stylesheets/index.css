@@ -3,6 +3,7 @@
 @import './splash.css';
 @import './car_list.css';
 @import './car_show.css';
+@import './car_detail.css';
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -34,7 +35,6 @@ time, mark, audio, video {
   flex-direction: row;
   margin: 0 auto;
   min-width: 800px;
-  background-image:
 }
 
 @media screen {
