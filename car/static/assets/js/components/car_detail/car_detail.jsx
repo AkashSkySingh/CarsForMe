@@ -64,7 +64,7 @@ class CarDetail extends React.Component {
       data: {
         location: "37.773972,-122.431297",
         radius: "300000",
-        keyword: `Acura Dealership`,
+        keyword: `${that.props.details.model_make_id} Dealership`,
         type: "car_deal",
         key: "AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs"
       },
@@ -142,7 +142,7 @@ class CarDetail extends React.Component {
             height={'500px'}
             lat={this.state.lat}
             lng={this.state.lng}
-            zoom={10}
+            zoom={9}
             loadingMessage={`Loading Map Nearest Dealerships`}
             params={params}
             onMapCreated={this.onMapCreated}
