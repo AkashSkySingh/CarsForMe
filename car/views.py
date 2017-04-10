@@ -66,16 +66,41 @@ class TrimViewSet(viewsets.ModelViewSet):
     )
 
 def car_list(request):
-    my_list = []
     body = request.GET.get('model_body')
     if body == 'sedan':
-        # MODEL_BODIES = ["Compact Cars", "Large Cars", "Midsize Cars", "Mini Compact Cars", "Subcompact Cars"]
-        my_list = list(Trim.objects.filter(model_body__in=["Subcompact Cars"]).first())
-    # request_params = request.GET
-    # model_body = request.GET.get('col')
-    # for el in list(Trim.objects.):
-    #     my_list.append(el[col_name])
-    return JsonResponse(str(my_list), safe=False)
+        MODEL_BODIES = ["Compact Cars", "Large Cars", "Midsize Cars", "Mini Compact Cars", "Subcompact Cars"]
+        car_list = list(Trim.objects.filter(model_body__in=MODEL_BODIES))
+    elif body == 'convertible':
+        car_list = list(Trim.objects.filter(model_trim__icontains='convertible'))
+    elif body == 'coupe':
+        car_list = list(Trim.objects.filter(model_trim__icontains='coupe'))
+    elif body == 'hybrid':
+        car_list = list(Trim.objects.filter(model_trim__icontains='hybrid'))
+    elif body == 'minivan':
+        MODEL_BODIES = ["Minivan", "Passenger Vans", "Cargo Vans"]
+        car_list = list(Trim.objects.filter(model_body__in=MODEL_BODIES))
+    elif body == 'sport':
+        car_list = list(Trim.objects.filter(model_body__iexact="Two Seaters"))
+    elif body == 'suv':
+        MODEL_BODIES = ["Small Sport Utility Vehicles", "Sport Utility Vehicles", "Standard Sport Utility Vehicles"]
+        car_list = list(Trim.objects.filter(model_body__in=MODEL_BODIES))
+    elif body == 'truck':
+        MODEL_BODIES = ["Small Pickup Trucks", "Standard Pickup Trucks"]
+        car_list = list(Trim.objects.filter(model_body__in=MODEL_BODIES))
+
+
+    return_list = []
+    for car in car_list:
+        return_list.append({
+        'id': car.id,
+        'model_make_display': car.model_make_display,
+        'model_name': car.model_name,
+        'model_trim': car.model_trim,
+        'model_transmission_type': car.model_transmission_type,
+        'model_lkm_hwy': car.model_lkm_hwy,
+        'model_lkm_city': car.model_lkm_city
+        })
+    return JsonResponse(return_list, safe=False)
 
 def values(request):
     my_list = []
