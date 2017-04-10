@@ -4,11 +4,6 @@ import { hashHistory } from 'react-router';
 class Splash extends React.Component {
   constructor(props){
     super(props);
-    this.searchType = this.searchType.bind(this);
-  }
-
-  componentDidMount() {
-
   }
 
   handleClick(bodyType) {
