@@ -17,7 +17,7 @@ The integration of CarQueryAPI with our personal database which has relevant pri
 ## Minimum Viable Product
 
 - [ ] Django/Python Back-End
-- [ ] Car list generation w/ price via CarQuery/Django Database
+- [ ] Car list generation via CarQuery/Django Database
 - [ ] In-depth car detail via Car Query API
 - [ ] Map of nearby dealerships of similar make to car selected
 
@@ -59,7 +59,7 @@ $.getJSON("https://www.carqueryapi.com/api/0.3/" + "?callback=?", {cmd:"getInfo"
 }
 ```
 
-The variable, getInfo, can be anything from makes, models, trims, and years for the various cars we need more information on, and this information will then be seeded into our database for potential user use. 
+The variable, getInfo, can be anything from makes, models, trims, and years for the various cars we need more information on, and this information will then be seeded into our database for potential user use.
 
 ## Group Members and Work Breakdown
 Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All members are expected to learn Django and Python, as well as complete the following tasks:
@@ -78,7 +78,7 @@ Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All mem
   + [ ] Setting up domain and pushing to production
 - Khalil will complete the following:
   + [ ] Set up database using CarQuery API and seeding
-  + [ ] Pricing information for cars 
+  + [ ] Pricing information for cars
   + [ ] Implementing Routes/Controllers in the backend
   + [ ] Search functionality and filtering the results
   + [ ] Styling
@@ -99,7 +99,7 @@ Our group consists of Aaron Huynh, Akashpreet Singh, and Khalil Nasirov. All mem
  - [ ] Finish splash page with fake award cars data on the bottom (Akash + Aaron)
  - [ ] Verify seeded data and help complete the two tasks above (Khalil)
  - [ ] Implementing Routes/Controllers in the backend (Khalil)
- 
+
 ### Phase 3: Car Result Page and Bug Testing
 
 **Objective:** Start working on the results show page where there’s a filter side bar and a car index container based on the filter selection. By the end of the day, we will have:
