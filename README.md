@@ -18,7 +18,6 @@ All cars are stored as `trims` with columns like `model_make_id` which includes 
 Sample State for Car Detail for each `model_trim`:
 
 ```js
-
 {
     "id": 1,
     "model_id": "69703",
@@ -60,9 +59,53 @@ Sample State for Car Detail for each `model_trim`:
     "model_make_display": "Acura",
     "make_display": "Acura",
     "make_country": "USA"
-},
-
+},  
 ```
+
+
+### RESTful API to query CarsForMe Database
+
+![api screenshot](https://res.cloudinary.com/booklog/image/upload/c_scale,h_360/v1491799709/Screen_Shot_2017-04-09_at_9.44.26_PM_yepusu.png)
+
+Easy to use API to query the CarsForMe database. The response is in API view (JSON view optional). Allowed paths are api/makes, api/carmodels , and api/trims. The API query format is in:
+
+  carsforme.net/api/`model`/?`filters`=ExactTerm&`filters`=ExactTerm
+
+Base API:
+
+https://www.carsforme.net/api/
+
+Sample queries:
+
+List of all models in database
+
+https://www.carsforme.net/api/carmodels/
+
+List of all Acura Models
+
+https://www.carsforme.net/api/carmodels/?model_make_id=Acura
+
+List of all Acura Model with Trims that have a 4 cylinder engine
+
+https://www.carsforme.net/api/trims/?model_make_id=Acura&model_engine_cyl=4
+
+List of all BMW Model with Trims that have a Inline-6 Engine (Not V6)
+
+https://www.carsforme.net/api/trims/?model_make_id=BMW&model_engine_type=Inline&model_engine_cyl=6
+
+
+### Django backend
+```js
+
+class TrimSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Trim
+        fields = ('id', "model_id", "model_make_id", "model_name", "model_trim", "model_year", "model_body", "model_engine_position", "model_engine_cc", "model_engine_cyl", "model_engine_type", "model_engine_valves_per_cyl", "model_engine_power_ps", "model_engine_power_rpm", "model_engine_torque_nm", "model_engine_torque_rpm", "model_engine_bore_mm", "model_engine_stroke_mm", "model_engine_compression", "model_engine_fuel", "model_top_speed_kph", "model_0_to_100_kph", "model_drive", "model_transmission_type", "model_seats", "model_doors", "model_weight_kg", "model_length_mm", "model_width_mm", "model_height_mm", "model_wheelbase_mm", "model_lkm_hwy", "model_lkm_mixed", "model_lkm_city", "model_fuel_cap_l", "model_sold_in_us", "model_co2", "model_make_display", "make_display", "make_country")
+```
+
+
+HyperLinkedModelSerializers in Django to filter the results. The fields above can also be applied as the filter to get the results that in the query.
+
 
 ### Google Custom Search Engine, Maps, and Places API
 
@@ -73,17 +116,14 @@ On enter of the car detail page, a AJAX request using a Google Custom Search Eng
 On the car detail page, there is a html5 request for the geolocation. If the user accepts, the map shows the nearest 20 places that match the `model_make_id` of the car that is being shown. The map is zoomed out to around 180miles due to car dealerships being spread out.
 
 
-### APIs
+### APIs & Libraries Used
 - Google Custom Search Engine API
 - Google Maps API
 - Google Places API
-
-### React Libraries
 - React-GMaps
+- Django REST Framework
 
-###
 
-###
 
 ## Future Directions for the Project
 
