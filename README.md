@@ -8,6 +8,9 @@
 
 ## Features and Implementation
 
+![front page](https://res.cloudinary.com/nightstock/image/upload/s--0pya1wTr--/c_scale,h_340/v1491803044/splash_wyxvjq.png)
+
+![car detail](https://res.cloudinary.com/nightstock/image/upload/s--o99XniOt--/v1491803044/cardetail_ombczh.png)
 
 ### Filter by Car Size
 
@@ -62,6 +65,7 @@ Sample State for Car Detail for each `model_trim`:
 },  
 ```
 
+![filtered list](https://res.cloudinary.com/nightstock/image/upload/s--zk8Kz5cz--/c_scale,h_340/v1491803044/carlist_xudn8k.png)
 
 ### RESTful API to query CarsForMe Database
 
