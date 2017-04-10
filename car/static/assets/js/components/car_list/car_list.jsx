@@ -7,24 +7,31 @@ class CarList extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchCars({data: this.props.searchParams});
   }
 
   render() {
     const {carList} = this.props;
     const list = Object.keys(carList).map( (id, index) => {
-      return <CarListItem key={index}
-        id={carList[id].id}
-        modelName={carList[id].model_name}/>
-    })
+      return (<CarListItem key={index}
+        car={this.props.carList[id]}/>);
+    });
     return (
-      <div>
-        <ul>
-          {list}
-        </ul>
+      <div className="carlist-middle">
+
+        <div className="carlist-filter">
+
+        </div>
+
+        <div className="carlist-table">
+          <ul className="carlist">
+            {list}
+          </ul>
+        </div>
+
       </div>
-    )
+    );
   }
 
 }
