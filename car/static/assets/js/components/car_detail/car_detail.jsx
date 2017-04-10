@@ -23,7 +23,6 @@ class CarDetail extends React.Component {
     this.getPosition();
     this.getCarPicture();
     this.getDealerships();
-    console.log(this.props);
   }
 
   getPosition() {
@@ -78,9 +77,9 @@ class CarDetail extends React.Component {
   render() {
     this.getPosition();
     const { details } = this.props;
-    // console.log(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.773972,-122.431297&radius=300000&keyword=${this.props.details.model_make_id}%20Dealership&type=car_deal&key=AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs`);
+
     let markers;
-    // let text;
+
     if (this.state.locations.length !== undefined) {
       markers = Object.keys(this.state.locations).map( (id, index) => {
         return (<Marker key={index}
@@ -92,54 +91,87 @@ class CarDetail extends React.Component {
 
     const { model_year, model_make_id, model_name, model_trim } = details;
     return(
-      <div >
-        <div >
-          <div >
-            <img />
-            {this.state.picture ? <img width="600" src={`${this.state.picture}`} /> : "Error: No Car Selected" }
-          </div>
+      <div className="detail-middle">
 
-          <div >
-            <header>{details.model_year} {details.model_make_id} {details.model_name}</header>
-            <span>{details.model_trim}</span>
-            <div >
-                <div>
-                  <ul>
-                    <li>Transmission:</li>
-                    <li>{details.model_ulansmission_type}</li>
-                  </ul>
-                  <ul>
-                    <li>Drive:</li>
-                    <li>{details.model_drive}</li>
-                  </ul>
-                </div>
+        <div className="detail-wrap">
 
-                <div>
-                  <ul>
-                    <li>City MPG:</li>
-                    <li>{details.model_lkm_city}</li>
-                  </ul>
-                  <ul>
-                    <li>Highway MPG:</li>
-                    <li>{details.model_lkm_hwy}</li>
-                  </ul>
-                  <ul>
-                    <li>Mixed MPG:</li>
-                    <li>{details.model_lkm_mixed}</li>
-                  </ul>
-                </div>
+          {this.state.picture ? <img width="600" className="detail-img" src={`${this.state.picture}`} /> : "Error: No Car Selected" }
+
+          <div className="detail-item">
+
+            <h2 className="detail-text">
+              {details.model_year} {details.model_make_id} {details.model_name}
+            </h2>
+
+            <h3 className="detail-text">
+              Trim:
+            </h3>
+
+            <h4 className="detail-text">
+              {details.model_trim}
+            </h4>
+
+            <div className="detail-divs">
+
+              <h3 className="detail-text">
+                Transmission:
+              </h3>
+
+              <h4 className="detail-text">
+                {details.model_transmission_type}
+              </h4>
+
             </div>
+
+            <div className="detail-divs">
+
+              <h3 className="detail-text">
+                Drive:
+              </h3>
+
+              <h4 className="detail-text">
+                {details.model_drive}
+              </h4>
+
+            </div>
+
+            <div className="detail-divs">
+
+              <h3 className="detail-text">
+                Highway:
+              </h3>
+
+              <h4 className="detail-text">
+                {details.model_lkm_hwy} mpg
+              </h4>
+
+            </div>
+
+            <div className="detail-divs">
+
+              <h3 className="detail-text">
+                City:
+              </h3>
+
+              <h4 className="detail-text">
+                {details.model_lkm_city} mpg
+              </h4>
+
+            </div>
+
           </div>
         </div>
 
-        <div >
-        </div>
+        <div className="detail-dealership">
 
-        <div >
-          {this.state.position}
+          <h2 className="detail-text">
+            Local Dealerships:
+          </h2>
+
           <Gmaps
-            width={'500px'}
-            height={'500px'}
+            className="detail-gmap"
+            width={'900px'}
+            height={'300px'}
             lat={this.state.lat}
             lng={this.state.lng}
             zoom={10}
@@ -150,13 +182,9 @@ class CarDetail extends React.Component {
 
               {markers}
 
-            {/* <Circle
-              lat={this.state.lat}
-              lng={this.state.lng}
-              radius={500}
-              onClick={this.onClick} /> */}
           </Gmaps>
         </div>
+
       </div>
     );
   }
