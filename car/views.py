@@ -65,6 +65,18 @@ class TrimViewSet(viewsets.ModelViewSet):
         "make_country"
     )
 
+def car_list(request):
+    my_list = []
+    body = request.GET.get('model_body')
+    if body == 'sedan':
+        # MODEL_BODIES = ["Compact Cars", "Large Cars", "Midsize Cars", "Mini Compact Cars", "Subcompact Cars"]
+        my_list = list(Trim.objects.filter(model_body__in=["Subcompact Cars"]).first())
+    # request_params = request.GET
+    # model_body = request.GET.get('col')
+    # for el in list(Trim.objects.):
+    #     my_list.append(el[col_name])
+    return JsonResponse(str(my_list), safe=False)
+
 def values(request):
     my_list = []
     col_name = request.GET.get('col')

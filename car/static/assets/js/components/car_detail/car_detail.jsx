@@ -23,7 +23,6 @@ class CarDetail extends React.Component {
     this.getPosition();
     this.getCarPicture();
     this.getDealerships();
-    console.log(this.props);
   }
 
   getPosition() {

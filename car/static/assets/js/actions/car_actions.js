@@ -18,6 +18,5 @@ export const fetchCar = id => dispatch => (
 );
 
 export const fetchCars = data => dispatch => (
-
   CarAPIUtil.fetchCars(data).then(res => dispatch(receiveCars(res)))
 );

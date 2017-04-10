@@ -7,8 +7,9 @@ class CarList extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchCars({data: this.props.searchParams});
+  componentWillMount() {
+    // console.log(this.props.searchParams);
+    this.props.fetchCars(this.props.searchParams);
   }
 
   render() {

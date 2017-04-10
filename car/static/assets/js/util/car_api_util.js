@@ -1,10 +1,13 @@
-export const fetchCars = data => (
+export const fetchCars = data => {
+  console.log('in ajax request');
+  console.log(data);
+  return (
   $.ajax({
     method: "GET",
-    url: `api/trims/`,
+    url: `cardata/car-list/`,
     data: data
   })
-);
+);};
 
 export const fetchColValues = col => (
   $.ajax({
