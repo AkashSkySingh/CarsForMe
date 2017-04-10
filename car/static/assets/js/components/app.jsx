@@ -24,7 +24,7 @@ const App = ({ children }) => (
           <ul className="linkedin">
 
             <li className="linkedin-item">
-              <a href="https://www.linkedin.com/in/huynhaaron/"><h4>Aaron Hyunh</h4></a>
+              <a href="https://www.linkedin.com/in/huynhaaron/"><h4>Aaron Huynh</h4></a>
             </li>
 
             <li className="linkedin-item">
