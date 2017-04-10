@@ -23,9 +23,8 @@ class CarDetail extends React.Component {
   }
 
   componentDidMount() {
-    this.getPosition();
     this.getCarPicture();
-    this.getDealerships();
+    // this.getDealerships();
   }
 
   getPosition() {
@@ -72,6 +71,7 @@ class CarDetail extends React.Component {
       },
       url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json`,
       success: function(data){
+        debugger;
         that.setState({locations: data.results});
       }
     });
@@ -93,17 +93,17 @@ class CarDetail extends React.Component {
 
     const { model_year, model_make_id, model_name, model_trim } = details;
     return(
-      <div className="car-detail-container">
-        <div className="details-box">
-          <div className="detail-image">
+      <div >
+        <div >
+          <div >
             <img />
             {this.state.picture ? <img width="600" src={`${this.state.picture}`} /> : "Error: No Car Selected" }
           </div>
 
-          <div className="detail-info">
+          <div >
             <header>{details.model_year} {details.model_make_id} {details.model_name}</header>
             <span>{details.model_trim}</span>
-            <div className="detail-specs">
+            <div >
                 <div>
                   <ul>
                     <li>Transmission:</li>
@@ -133,20 +133,19 @@ class CarDetail extends React.Component {
           </div>
         </div>
 
-        <div className="other-details">
+        <div >
         </div>
 
-        <div className="dealerships">
+        <div >
           {this.state.position}
           <Gmaps
             width={'500px'}
             height={'500px'}
             lat={this.state.lat}
             lng={this.state.lng}
-            zoom={10}
-            loadingMessage={`Loading Map Nearest ${details.model_make_id} Dealerships`}
-            params={params}
-            onMapCreated={this.onMapCreated}>
+            zoom={12}
+            loadingMessage={`Loading Map Nearest Dealerships`}
+            >
 
               {markers}
 
