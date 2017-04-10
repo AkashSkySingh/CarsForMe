@@ -13,3 +13,11 @@ export const fetchColValues = col => (
     data: {col}
   })
 );
+
+export const fetchCar = id => (
+  $.ajax({
+    method: "GET",
+    url: `api/trims/`,
+    data: {id}
+  })
+);
