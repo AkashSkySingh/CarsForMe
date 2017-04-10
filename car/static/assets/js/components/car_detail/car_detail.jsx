@@ -36,7 +36,7 @@ class CarDetail extends React.Component {
       (error) => {},
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
     );
-  };
+  }
 
   getCarPicture() {
     let that = this;
@@ -55,7 +55,7 @@ class CarDetail extends React.Component {
         that.setState({picture: data.items[0].link});
       }
     });
-  };
+  }
 
   getDealerships() {
     let that = this;
@@ -83,10 +83,10 @@ class CarDetail extends React.Component {
     // let text;
     if (this.state.locations.length !== undefined) {
       markers = Object.keys(this.state.locations).map( (id, index) => {
-        return <Marker key={index}
+        return (<Marker key={index}
                   lat={this.state.locations[id].geometry.location.lat}
                   lng={this.state.locations[id].geometry.location.lng}
-                />
+                />);
       });
     }
 
