@@ -11,10 +11,6 @@ class Splash extends React.Component {
 
   }
 
-  searchType() {
-
-  }
-
   handleClick(bodyType) {
     this.props.setSearchParams({model_body: bodyType});
     hashHistory.push("/carlist");
