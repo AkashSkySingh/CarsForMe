@@ -60,6 +60,8 @@
 .carlist-item-text {
   display: flex;
   flex-direction: column;
+  min-width: 400px;
+  width: 400px;
 }
 
 .carlist-item:hover {
@@ -67,8 +69,23 @@
   border: 1px solid black;
 }
 
-.carlist-item-mpg {
+.carlist-item-text h2 {
+  font-size: 25px;
+  text-align: center;
+}
+
+.carlist-item-text h3 {
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.carlist-item-text h4 {
+  font-size: 15px;
+  font-family: 'Dosis', sans-serif;
+  margin-right: 20px;
+}
+
+.carlist-item-divs {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
