@@ -11,8 +11,9 @@ class CarListItem extends React.Component {
 
   render() {
     let {car} = this.props;
-    // console.log(car);
-    // debugger;
+    let trimIdx = car.model_trim.indexOf("(");
+    let trim1 = car.model_trim.slice(0, trimIdx);
+    let trim2 = car.model_trim.slice(trimIdx);
     return (
       <li className="carlist-item">
         <Link to={`cars/${car.id}`} className="carlist-link">
@@ -30,22 +31,41 @@ class CarListItem extends React.Component {
             </h3>
 
             <h4 className="carlist-text">
-              {car.model_trim}
+              {trim1}
             </h4>
-
 
             <h4 className="carlist-text">
-              Transmission: <br /> {car.model_transmission_type}
+              {trim2}
             </h4>
 
-            <div className="carlist-item-mpg">
+            <div className="carlist-item-divs">
+
+              <h3 className="carlist-text">
+                Transmission:
+              </h3>
 
               <h4 className="carlist-text">
-                Highway MPG: <br /> {car.model_lkm_hwy}
+                {car.model_transmission_type}
               </h4>
 
+            </div>
+
+            <div className="carlist-item-divs">
+
+              <h3 className="carlist-text">
+                Highway:
+              </h3>
+
               <h4 className="carlist-text">
-                City MPG: <br /> {car.model_lkm_city}
+                {car.model_lkm_hwy} mpg
+              </h4>
+
+              <h3 className="carlist-text">
+                City:
+              </h3>
+
+              <h4 className="carlist-text">
+                {car.model_lkm_city} mpg
               </h4>
 
             </div>
