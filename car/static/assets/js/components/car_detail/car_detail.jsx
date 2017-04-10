@@ -20,9 +20,10 @@ class CarDetail extends React.Component {
     }
   }
   getInfo() {
-    this.getPosition();
+    // this.getPosition();
     this.getCarPicture();
-    this.getDealerships();
+    // this.getDealerships();
+    // console.log(this.props);
   }
 
   getPosition() {
@@ -63,7 +64,7 @@ class CarDetail extends React.Component {
       data: {
         location: "37.773972,-122.431297",
         radius: "300000",
-        keyword: `Acura Dealership`,
+        keyword: `${that.props.details.model_make_id} Dealership`,
         type: "car_deal",
         key: "AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs"
       },
@@ -77,17 +78,16 @@ class CarDetail extends React.Component {
   render() {
     this.getPosition();
     const { details } = this.props;
-
-    let markers;
-
-    if (this.state.locations.length !== undefined) {
-      markers = Object.keys(this.state.locations).map( (id, index) => {
-        return (<Marker key={index}
-                  lat={this.state.locations[id].geometry.location.lat}
-                  lng={this.state.locations[id].geometry.location.lng}
-                />);
-      });
-    }
+    //
+    // let markers;
+    //   if (this.state.locations.length !== undefined) {
+    //     markers = Object.keys(this.state.locations).map( (id, index) => {
+    //       return (<Marker key={index}
+    //                 lat={this.state.locations[id].geometry.location.lat}
+    //                 lng={this.state.locations[id].geometry.location.lng}
+    //               />);
+    //     });
+    // }
 
     const { model_year, model_make_id, model_name, model_trim } = details;
     return(
@@ -169,18 +169,64 @@ class CarDetail extends React.Component {
           </h2>
 
           <Gmaps
+
             className="detail-gmap"
             width={'900px'}
             height={'300px'}
-            lat={this.state.lat}
-            lng={this.state.lng}
-            zoom={10}
+            lat="37.7915922"
+            lng="-122.39322559999998"
+            zoom={9}
+
             loadingMessage={`Loading Map Nearest Dealerships`}
             params={params}
             onMapCreated={this.onMapCreated}
             >
 
-              {markers}
+              <Marker
+                lat="37.500917"
+                lng="-121.978472"/>
+              <Marker
+                lat="37.97537159999999"
+                lng="-122.044704"/>
+              <Marker
+                lat="37.67725464575588"
+                lng="-122.45638263558197"/>
+              <Marker
+                lat="37.9505991"
+                lng="-122.4936889"/>
+              <Marker
+                lat="37.499984"
+                lng="-121.9764596"/>
+              <Marker
+                lat="37.5905941"
+                lng="-122.3650063"/>
+              <Marker
+                lat="37.5009093,"
+                lng="-121.9784772"/>
+              <Marker
+                lat="37.58790330000001"
+                lng="-122.3621636"/>
+              <Marker
+                lat="37.748344"
+                lng="-122.20476"/>
+              <Marker
+                lat="37.38311289999999,"
+                lng="-121.9436799"/>
+              <Marker
+                lat="38.099506,"
+                lng="-122.255174"/>
+              <Marker
+                lat="37.9185141"
+                lng="-122.0659726"/>
+              <Marker
+                lng="-122.14901565"
+                lat="37.4301183"/>
+              <Marker
+                lat="37.4996399"
+                lng="-121.9754804"/>
+              <Marker
+                lat="37.4996399"
+                lng="-121.9754804"/>
 
           </Gmaps>
         </div>
