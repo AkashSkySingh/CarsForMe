@@ -1,7 +1,7 @@
 export const fetchCars = data => (
   $.ajax({
     method: "GET",
-    url: `api/trims/`,
+    url: `cardata/car-list/`,
     data: data
   })
 );
