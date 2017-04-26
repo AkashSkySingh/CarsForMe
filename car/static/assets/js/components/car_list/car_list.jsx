@@ -14,7 +14,7 @@ class CarList extends React.Component {
 
   render() {
     const {carList} = this.props;
-    const list = Object.keys(carList).map( (id, index) => {
+    const list = Object.keys(carList).slice(0, 10 * this.props.pageNo).map( (id, index) => {
       return (<CarListItem key={index}
         car={this.props.carList[id]}/>);
     });

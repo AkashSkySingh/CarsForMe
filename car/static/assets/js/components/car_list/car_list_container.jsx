@@ -4,10 +4,11 @@ import CarList from './car_list';
 
 import { fetchCars } from '../../actions/car_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return ({
     carList: state.carList,
-    searchParams: state.searchParams
+    searchParams: state.searchParams,
+    pageNo: parseInt(ownProps.location.query.pageNo)
   });
 };
 
