@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     carList: state.carList,
     searchParams: state.searchParams,
-    pageNo: parseInt(ownProps.location.query.pageNo)
+    page: parseInt(ownProps.location.query.page),
+    ownProps: ownProps
   });
 };
 
