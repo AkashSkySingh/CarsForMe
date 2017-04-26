@@ -6,8 +6,31 @@ import { Link } from 'react-router';
 class CarListItem extends React.Component {
   constructor(props){
     super(props);
+    this.state = { picture: null };
+    this.getCarPicture = this.getCarPicture.bind(this);
+  }
+  componentDidMount() {
+    this.getCarPicture();
   }
 
+  getCarPicture() {
+    let that = this;
+    $.ajax({
+      type: 'GET',
+      data: {
+        imgSize: "large",
+        alt: "json",
+        searchType: "image",
+        q: `2017 ${that.props.car.model_make_display} ${that.props.car.model_name}`,
+        cx: "003264831380035041777:hi4v6rphnr8",
+        key: "AIzaSyCzWOe2mBvhD-gSITuOQc_oMKY1bSx91IY"
+      },
+      url: `https://www.googleapis.com/customsearch/v1`,
+      success: function(data){
+        that.setState({picture: data.items[0].link});
+      }
+    });
+  }
 
   render() {
     let {car} = this.props;
@@ -18,8 +41,8 @@ class CarListItem extends React.Component {
       <li className="carlist-item">
         <Link to={`cars/${car.id}`} className="carlist-link">
 
-          <img className="carlist-item-img" src="http://caribbeanautobox.com/img/uploads/vehicles/default-car.png" />
-
+          {/* <img className="carlist-item-img" src={`${this.state.picture}`} /> */}
+          {this.state.picture ? <img width="600" className="carlist-item-img" src={`${this.state.picture}`} /> : "Loading Picture..." }
           <div className="carlist-item-text">
 
             <h2 className="carlist-text">
