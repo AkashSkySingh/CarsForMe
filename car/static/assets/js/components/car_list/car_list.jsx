@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import merge from 'lodash/merge';
 import CarListItem from './car_list_item';
 
 class CarList extends React.Component {
@@ -23,7 +22,7 @@ class CarList extends React.Component {
     let html = document.documentElement;
 
     let height = Math.max(body.scrollHeight, body.offsetHeight,
-                          html.clientHeight, html.scrollHeight, html.offsetHeight );
+                          html.clientHeight, html.scrollHeight, html.offsetHeight);
 
     if (body.scrollTop + window.innerHeight + 150 > height) {
       hashHistory.replace({ pathname:"/carlist", query: {page: this.props.page + 1} })
