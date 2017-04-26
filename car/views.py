@@ -87,7 +87,8 @@ def car_list(request):
     elif body == 'truck':
         MODEL_BODIES = ["Small Pickup Trucks", "Standard Pickup Trucks"]
         car_list = list(Trim.objects.filter(model_body__in=MODEL_BODIES))
-
+    else:
+        car_list = list(Trim.objects.all())
 
     return_list = []
     for car in car_list:
