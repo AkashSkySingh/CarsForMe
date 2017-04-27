@@ -29,42 +29,42 @@ class Splash extends React.Component {
 
 
             <li className="splash-item" onClick={() => this.handleClick("convertible")}>
-              <img src="https://res.cloudinary.com/nightstock/image/upload/s--nW0VNNJL--/v1491581600/convertible_ovdrj1.png" className="splash-img"/>
+              <img src="https://res.cloudinary.com/nightstock/image/upload/s--P9CUH9mt--/v1493327280/bmw-serie-4-cabrio-side-view_nvxwv0.png" className="splash-img"/>
               <h2>Convertible</h2>
             </li>
 
             <li className="splash-item" onClick={() => this.handleClick("coupe")}>
-              <img src="https://res.cloudinary.com/nightstock/image/upload/s--3h-byTWO--/v1491581600/coupe_sf23in.png" className="splash-img"/>
+              <img src="https://res.cloudinary.com/nightstock/image/upload/s--7qjuLKXv--/v1493327302/mercedes-benz-classe-c-coupe-side-view_gwt6it.png" className="splash-img"/>
               <h2>Coupe</h2>
             </li>
 
             <li className="splash-item" onClick={() => this.handleClick("hybrid")}>
-              <img src="https://res.cloudinary.com/nightstock/image/upload/s--klZ-wO4t--/v1491581600/hybrid_lcwkuv.png" className="splash-img"/>
+              <img src="https://res.cloudinary.com/nightstock/image/upload/s--UIurqjeT--/v1493327249/prius-car_tcm-3060-347907_pgrjek.png" className="splash-img"/>
               <h2>Hybrid</h2>
             </li>
 
             <li className="splash-item" onClick={() => this.handleClick("minivan")}>
-              <img src="https://res.cloudinary.com/nightstock/image/upload/s--Clr3UVrE--/v1491581600/minivan_arcilh.png" className="splash-img"/>
+              <img src="https://res.cloudinary.com/nightstock/image/upload/s--Nc5HvagS--/v1493311924/toyota-verso-icon-side_iwunk3.png" className="splash-img"/>
               <h2>Mini - Van</h2>
             </li>
 
             <li className="splash-item" onClick={() => this.handleClick('sedan')}>
-              <img src="https://res.cloudinary.com/nightstock/image/upload/s--Lpzu9z_J--/v1491581600/sedan_naeef1.png" className="splash-img"/>
+              <img src="https://res.cloudinary.com/nightstock/image/upload/s--8xL008jL--/v1493327161/CosyVehicleImage_2_ecivx1.png" className="splash-img"/>
               <h2>Sedan</h2>
             </li>
 
             <li className="splash-item" onClick={() => this.handleClick("sport")}>
-              <img src="https://res.cloudinary.com/nightstock/image/upload/s--xgMTwW24--/v1491581600/sport_dt73u0.png" className="splash-img"/>
+              <img src="https://res.cloudinary.com/nightstock/image/upload/s--RAyfpxi---/v1493324587/CosyVehicleImage_4_lykfs8.png" className="splash-img"/>
               <h2>Sport</h2>
             </li>
 
             <li className="splash-item" onClick={() => this.handleClick("suv")}>
-              <img src="https://res.cloudinary.com/nightstock/image/upload/s--KMwpSMTc--/v1491581600/suv_fx1bmk.png" className="splash-img"/>
+              <img src="https://res.cloudinary.com/nightstock/image/upload/s--QTlfC2Qq--/v1493327197/CosyVehicleImage_3_xztk3l.png" className="splash-img"/>
               <h2>SUV</h2>
             </li>
 
             <li className="splash-item" onClick={() => this.handleClick("truck")}>
-              <img src="https://res.cloudinary.com/nightstock/image/upload/s--ny-WHk6q--/v1491581600/truck_t5docz.png" className="splash-img"/>
+              <img src="https://res.cloudinary.com/nightstock/image/upload/s--T1QeMdZS--/v1493326645/ca-2017-chevrolet-silverado-1500-pickup-truck-mo-bp-648x218_iqutnl.png" className="splash-img"/>
               <h2>Truck</h2>
             </li>
 
