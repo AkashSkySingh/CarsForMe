@@ -6,11 +6,12 @@ class CarList extends React.Component {
   constructor(props){
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
+    this.state = { list: this.props.carList }
   }
 
   componentDidMount() {
-    this.props.fetchCars(this.props.searchParams);
     document.addEventListener('scroll', this.handleScroll);
+    this.props.fetchCars(this.props.searchParams);
   }
 
   componentWillUnmount () {
@@ -31,10 +32,12 @@ class CarList extends React.Component {
 
   render() {
     const {carList} = this.props;
-    const list = Object.keys(carList).slice(0, 10 * this.props.page).map( (id, index) => {
-      return (<CarListItem key={index}
-        car={this.props.carList[id]}/>);
-    });
+    let list = []
+    if (this.state.list !== carList) {
+      list = Object.keys(carList).slice(0, this.props.page).map( (id, index) => {
+        return (<CarListItem key={index} car={this.props.carList[id]}/>);
+      });
+    }
     return (
       <div className="carlist-middle">
 

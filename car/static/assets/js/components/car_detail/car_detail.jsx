@@ -65,7 +65,7 @@ class CarDetail extends React.Component {
         location: "37.773972,-122.431297",
         radius: "300000",
         keyword: `${that.props.details.model_make_id} Dealership`,
-        type: "car_deal",
+        type: "car_dealer",
         key: "AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs"
       },
       url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json`,
