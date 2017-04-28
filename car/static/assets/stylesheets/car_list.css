@@ -18,13 +18,10 @@
 
 .carlist-table {
   max-width: 800px;
-  margin: auto;
+  margin: 80px auto 0 auto;
   padding-bottom: 65px;
-  background-color: rgba(0, 0, 0, .5);
-  border-radius: 0 30px 30px 0;
-  position: relative;
-  top: 10%;
-  left: 0%;
+  background-color: rgba(0, 0, 0, .6);
+  border-radius: 0 10px 10px 0;
 }
 
 .carlist {
@@ -41,7 +38,7 @@
   margin: 15px;
   padding: 9px;
   background-color: rgba(255, 255, 255, .7);
-  border-radius: 0 25px 25px 0;
+  border-radius: 0 10px 10px 0;
   border: 1px solid white;
   cursor: pointer;
 }
@@ -72,21 +69,19 @@
 
 .carlist-item-text h2 {
   font-size: 25px;
+  margin: 0px;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 
 .carlist-item-text h3 {
-  font-size: 18px;
-  margin-right: 20px;
-}
-
-.carlist-item-text h4 {
   font-size: 15px;
-  font-family: 'Dosis', sans-serif;
   margin-right: 20px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .carlist-item-divs {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }

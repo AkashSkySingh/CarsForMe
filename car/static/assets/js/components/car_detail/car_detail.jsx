@@ -107,9 +107,9 @@ class CarDetail extends React.Component {
               Trim:
             </h3>
 
-            <h4 className="detail-text">
+            <h3 className="detail-text">
               {details.model_trim}
-            </h4>
+            </h3>
 
             <div className="detail-divs">
 
@@ -117,9 +117,9 @@ class CarDetail extends React.Component {
                 Transmission:
               </h3>
 
-              <h4 className="detail-text">
+              <h3 className="detail-text">
                 {details.model_transmission_type}
-              </h4>
+              </h3>
 
             </div>
 
@@ -129,9 +129,9 @@ class CarDetail extends React.Component {
                 Drive:
               </h3>
 
-              <h4 className="detail-text">
+              <h3 className="detail-text">
                 {details.model_drive}
-              </h4>
+              </h3>
 
             </div>
 
@@ -141,9 +141,9 @@ class CarDetail extends React.Component {
                 Highway:
               </h3>
 
-              <h4 className="detail-text">
+              <h3 className="detail-text">
                 {details.model_lkm_hwy} mpg
-              </h4>
+              </h3>
 
             </div>
 
@@ -153,9 +153,9 @@ class CarDetail extends React.Component {
                 City:
               </h3>
 
-              <h4 className="detail-text">
+              <h3 className="detail-text">
                 {details.model_lkm_city} mpg
-              </h4>
+              </h3>
 
             </div>
 

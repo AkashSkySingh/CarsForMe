@@ -39,16 +39,16 @@
 .splash-list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
 }
 
 .splash-item {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 100px;
-  margin: 15px;
-  padding: 9px;
+  width: 120px;
+  height: 90px;
+  margin: 14px;
+  vertical-align: middle;
   background-color: rgba(255, 255, 255, .7);
   border-radius: 8px;
   border: 1px solid white;
