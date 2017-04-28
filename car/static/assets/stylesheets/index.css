@@ -26,7 +26,6 @@ time, mark, audio, video {
   list-style: none;
   text-decoration: none;
   color: black;
-  font-family: 'Cabin', sans-serif;
 }
 
 .root-follow {
@@ -45,8 +44,8 @@ time, mark, audio, video {
 
 /*
   Font Types:
-  font-family: 'Cabin', sans-serif;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 */
 
 /*

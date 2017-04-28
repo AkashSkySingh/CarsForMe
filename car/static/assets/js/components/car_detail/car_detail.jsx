@@ -234,32 +234,32 @@ class CarDetail extends React.Component {
           <ul className="footer-list">
 
             <li>
-              <h4>Tech:</h4>
-              <p>Django & React</p>
+              <h4 className="footer-text">Tech:</h4>
+              <p className="footer-para">Django & React</p>
 
             </li>
 
             <li>
-              <h4>About Us:</h4>
+              <h4 className="footer-text">About Us:</h4>
               <ul className="linkedin">
 
                 <li className="linkedin-item">
-                  <a href="https://www.linkedin.com/in/huynhaaron/"><h4>Aaron Huynh</h4></a>
+                  <a href="https://www.linkedin.com/in/huynhaaron/"><h4 className="footer-text">Aaron Huynh</h4></a>
                 </li>
 
                 <li className="linkedin-item">
-                  <a href="https://www.linkedin.com/in/akashpreetsingh/"><h4>Akash Singh</h4></a>
+                  <a href="https://www.linkedin.com/in/akashpreetsingh/"><h4 className="footer-text">Akash Singh</h4></a>
                 </li>
 
                 <li className="linkedin-item">
-                  <a href="https://www.linkedin.com/in/khalil-nasirov/"><h4>Khalil Nasirov</h4></a>
+                  <a href="https://www.linkedin.com/in/khalil-nasirov/"><h4 className="footer-text">Khalil Nasirov</h4></a>
                 </li>
               </ul>
             </li>
 
             <li>
-              <a href="https://github.com/AkashSkySingh/CarsForMe"><h4>CarsForMe:</h4>
-              <p>GitHub</p></a>
+              <a href="https://github.com/AkashSkySingh/CarsForMe"><h4 className="footer-text">CarsForMe:</h4>
+              <p className="footer-para">GitHub</p></a>
             </li>
 
           </ul>
