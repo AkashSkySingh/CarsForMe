@@ -16,7 +16,7 @@ footer ul {
 }
 
 .footer-list {
-  margin: 5px auto;
+  margin: 0;
   min-width: 800px;
 }
 
@@ -26,14 +26,18 @@ footer ul {
 }
 
 .linkedin-item {
-  font-family: 'Dosis', sans-serif;
+  margin: auto 5px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
 }
 
-h4 {
-  margin: 5px auto 5px auto;
+.footer-text {
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
 }
 
-p {
-  margin: 5px auto 5px auto;
-  font-family: 'Dosis', sans-serif;
+.footer-para {
+  font-size: 14px;
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
 }

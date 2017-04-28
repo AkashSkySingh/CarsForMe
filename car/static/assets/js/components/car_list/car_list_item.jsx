@@ -53,13 +53,13 @@ class CarListItem extends React.Component {
               Trim:
             </h3>
 
-            <h4 className="carlist-text">
+            <h3 className="carlist-text">
               {trim1}
-            </h4>
+            </h3>
 
-            <h4 className="carlist-text">
+            <h3 className="carlist-text">
               {trim2}
-            </h4>
+            </h3>
 
             <div className="carlist-item-divs">
 
@@ -67,9 +67,9 @@ class CarListItem extends React.Component {
                 Transmission:
               </h3>
 
-              <h4 className="carlist-text">
+              <h3 className="carlist-text">
                 {car.model_transmission_type}
-              </h4>
+              </h3>
 
             </div>
 
@@ -79,17 +79,17 @@ class CarListItem extends React.Component {
                 Highway:
               </h3>
 
-              <h4 className="carlist-text">
+              <h3 className="carlist-text">
                 {car.model_lkm_hwy} mpg
-              </h4>
+              </h3>
 
               <h3 className="carlist-text">
                 City:
               </h3>
 
-              <h4 className="carlist-text">
+              <h3 className="carlist-text">
                 {car.model_lkm_city} mpg
-              </h4>
+              </h3>
 
             </div>
 

@@ -5,8 +5,8 @@ import CarList from './car_list';
 import { fetchCars } from '../../actions/car_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  let page = parseInt(ownProps.location.query.page)
-  if (!page) { page = 1 }
+  let page = parseInt(ownProps.location.query.page);
+  if (!page) { page = 1; }
 
   return ({
     carList: state.carList,

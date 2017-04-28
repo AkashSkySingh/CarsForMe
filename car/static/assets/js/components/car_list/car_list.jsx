@@ -6,7 +6,7 @@ class CarList extends React.Component {
   constructor(props){
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
-    this.state = { list: this.props.carList }
+    this.state = { list: this.props.carList };
   }
 
   componentDidMount() {
@@ -26,13 +26,13 @@ class CarList extends React.Component {
                           html.clientHeight, html.scrollHeight, html.offsetHeight);
 
     if (body.scrollTop + window.innerHeight + 150 > height) {
-      hashHistory.replace({ pathname:"/carlist", query: {page: this.props.page + 1} })
+      hashHistory.replace({ pathname:"/carlist", query: {page: this.props.page + 1} });
     }
   }
 
   render() {
     const {carList} = this.props;
-    let list = []
+    let list = [];
     if (this.state.list !== carList) {
       list = Object.keys(carList).slice(0, 10 * this.props.page).map( (id, index) => {
         return (<CarListItem key={index} car={this.props.carList[id]}/>);
