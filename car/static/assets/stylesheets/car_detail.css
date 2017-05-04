@@ -15,17 +15,15 @@
 
 .arrow {
   background-color: rgba(0, 0, 0, 0.7);
-  margin: auto;
+  margin: auto 30px;
   display: block;
   border-radius: 10px 10px 10px 10px;
 }
 
 .arrow-img {
-  margin: auto 0;
   width: 100px;
   height: 300px;
 }
-
 
 .detail-center {
   display: flex;
@@ -45,10 +43,9 @@
 }
 
 .detail-img {
-  width: 600px;
-  min-width: 600px;
-  height: 300px;
-  margin: 25px;
+  display: block;
+  margin: auto 30px;
+  height: 100%;
 }
 
 .detail-item {
@@ -85,7 +82,7 @@
 .detail-dealership {
   max-width: 1000px;
   width: 1000px;
-  margin: 5px auto auto auto;
+  margin: 5px auto 80px auto;
   background-color: rgba(0, 0, 0, .7);
   border-radius: 0 0 10px 10px;
   min-height: 400px;
