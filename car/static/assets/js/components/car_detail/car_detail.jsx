@@ -1,6 +1,6 @@
 import React from 'react';
 import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
-
+import { hashHistory } from 'react-router';
 const params = {v: '3.exp', key: 'AIzaSyC2ysLHnXB5uOYcbrMyrAbwNqxziomWUIs'};
 
 
@@ -10,20 +10,32 @@ class CarDetail extends React.Component {
     super(props);
     this.state = { picture: null, position: "unknown", lng: null, lat: null, locations: {} };
     this.getInfo = this.getInfo.bind(this);
+    console.log(props);
   }
+
   componentWillMount() {
     this.props.fetchCar(this.props.id).then(this.getInfo);
   }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.id !== nextProps.id) {
       this.props.fetchCar(nextProps.id).then(this.getInfo);
     }
   }
+
   getInfo() {
     // this.getPosition();
     this.getCarPicture();
     // this.getDealerships();
     // console.log(this.props);
+  }
+
+  // Find index via props.id or the entire car object to move forward.
+  // The carList is an object of objects.
+
+  moveForward() {
+    let currentIndex = this.props.carList.indexOf(this.props.details);
+
   }
 
   getPosition() {

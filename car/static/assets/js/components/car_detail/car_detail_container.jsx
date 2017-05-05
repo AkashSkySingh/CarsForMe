@@ -5,7 +5,8 @@ import { fetchCar } from '../../actions/car_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   id: parseInt(ownProps.params.carId),
-  details: state.carDetail
+  details: state.carDetail,
+  carList: state.carList
 });
 
 const mapDispatchToProps = dispatch => ({
