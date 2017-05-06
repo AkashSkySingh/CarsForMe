@@ -1,20 +1,14 @@
 # CarsForMe: PRODUCTION_README
 
 - [CarsForMe: Live][live]
-- [CarsForMe: Github][github]
 
 [live]: http://www.CarsForMe.net
-[github]: https://github.com/AkashSkySingh/CarsForMe
 
 ## Features and Implementation
 
-![front page](https://res.cloudinary.com/nightstock/image/upload/s--0pya1wTr--/c_scale,h_340/v1491803044/splash_wyxvjq.png)
+### Filter by Model Make
 
-![car detail](https://res.cloudinary.com/nightstock/image/upload/s--o99XniOt--/v1491803044/cardetail_ombczh.png)
-
-### Filter by Car Size
-
-[image here of splash page car size containers here]
+![front page](https://res.cloudinary.com/nightstock/image/upload/s--ffINOMcE--/v1494101919/Screenshot_from_2017-05-06_13-05-22_ceog5a.png)
 
 All cars are stored as `trims` with columns like `model_make_id` which includes the car make, `model_name`, `doors`, `model_engine_cc`, etc. When a user clicks a model size, a API call gets sent and retrieves all cars that matches the size on the `model_body: "Compact Cars"`.
 
@@ -64,43 +58,69 @@ Sample State for Car Detail for each `model_trim`:
     "make_country": "USA"
 },  
 ```
+### Filtered List
+![filtered list](https://res.cloudinary.com/nightstock/image/upload/s--1wqNiXJE--/v1494101973/Screenshot_from_2017-05-06_13-05-58_gfxkhc.png)
 
-![filtered list](https://res.cloudinary.com/nightstock/image/upload/s--zk8Kz5cz--/c_scale,h_340/v1491803044/carlist_xudn8k.png)
+After a user selects a particular `model_body`on the splash page, the user is provided a 10 car list on a following page. Through the integration and asynchronous calls of various APIs, the user can view a variety of cars with all of their relevant information.
+
+The API calls also provide the various trims that match the User's selected `model_body`, as depicted by similar car images.
+
+The images themselves are provided via the use of Google Search API. The request uses the details of the particular vehicle to search the internet for an appropriate image. A sample `GET Request` is as followed:
+
+```js
+  $.ajax({
+    type: 'GET',
+    data: {
+      imgSize: "large",
+      alt: "json",
+      searchType: "image",
+      q: `2017 ${that.props.car.model_make_display} ${that.props.car.model_name}`,
+      cx: "UNIQUE_USER_ID",
+      key: "UNIQUE_KEY"
+    },
+    url: `https://www.googleapis.com/customsearch/v1`,
+    success: function(data){
+      that.setState({picture: data.items[0].link});
+    }
+  });
+```
+
+In addition, the list page allows for `infinite-scroll` as a user can browse the page, and as the user reaches the bottom of the page, another 10 vehicles will be populated and added to the list. This will also trigger the necessary API calls to get the various details.
 
 ### RESTful API to query CarsForMe Database
 
 ![api screenshot](https://res.cloudinary.com/booklog/image/upload/c_scale,h_360/v1491799709/Screen_Shot_2017-04-09_at_9.44.26_PM_yepusu.png)
 
-Easy to use API to query the CarsForMe database. The response is in API view (JSON view optional). Allowed paths are api/makes, api/carmodels , and api/trims. The API query format is in:
+Easy to use API to query the CarsForMe database. The response is in API view (JSON view optional). Allowed paths are api/makes, api/carmodels , and api/trims.
 
-  carsforme.net/api/`model`/?`filters`=ExactTerm&`filters`=ExactTerm
+The API query format is in:
+
+- CarsForMe.net/api/`model`/?`filters`=ExactTerm&`filters`=ExactTerm
 
 Base API:
 
-https://www.carsforme.net/api/
+- https://www.carsforme.net/api/
 
 Sample queries:
 
-List of all models in database
-
-https://www.carsforme.net/api/carmodels/
-
-List of all Acura Models
-
-https://www.carsforme.net/api/carmodels/?model_make_id=Acura
-
-List of all Acura Model with Trims that have a 4 cylinder engine
-
-https://www.carsforme.net/api/trims/?model_make_id=Acura&model_engine_cyl=4
-
-List of all BMW Model with Trims that have a Inline-6 Engine (Not V6)
-
-https://www.carsforme.net/api/trims/?model_make_id=BMW&model_engine_type=Inline&model_engine_cyl=6
+- List of all models in database:
+  - https://www.carsforme.net/api/carmodels/
 
 
-### Django backend
+- List of all Acura Models
+  - https://www.carsforme.net/api/carmodels/?model_make_id=Acura
+
+
+- List of all Acura Model with Trims that have a 4 cylinder engine
+  - https://www.carsforme.net/api/trims/?model_make_id=Acura&model_engine_cyl=4
+
+
+- List of all BMW Model with Trims that have a Inline-6 Engine (Not V6)
+  - https://www.carsforme.net/api/trims/?model_make_id=BMW&model_engine_type=Inline&model_engine_cyl=6
+
+
+### Django Back - End
 ```js
-
 class TrimSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Trim
@@ -108,16 +128,18 @@ class TrimSerializer(serializers.HyperlinkedModelSerializer):
 ```
 
 
-HyperLinkedModelSerializers in Django to filter the results. The fields above can also be applied as the filter to get the results that in the query.
+HyperLinkedModelSerializers are used in Django to filter the results. The fields above can also be applied as the filter to get the results in the query.
 
 
-### Google Custom Search Engine, Maps, and Places API
+### Car Show Page, Google Custom Search Engine, Maps, and Places API
 
-[image of google maps here]
+![car detail](https://res.cloudinary.com/nightstock/image/upload/s--7GTbcqOO--/v1494101869/Screenshot_from_2017-05-06_13-14-27_jzx4m0.png)
 
 On enter of the car detail page, a AJAX request using a Google Custom Search Engine results in a image search over a car website for the picture of the car.
 
 On the car detail page, there is a html5 request for the geolocation. If the user accepts, the map shows the nearest 20 places that match the `model_make_id` of the car that is being shown. The map is zoomed out to around 180miles due to car dealerships being spread out.
+
+The page also allows users to move forward and backward in the query looking at vehicles matching their search or defined vehicle model type. If by chance, the user shares the page, the action of moving forward and backward cycles cars based on their id, allowing a user to browse various vehicles in alphabetical order based on the Django back-end database.
 
 
 ### APIs & Libraries Used
@@ -143,3 +165,6 @@ for example, you can search "Civic" and the results page will bring up the car l
 Ability to see the car base price under the results show page. Edmunds API
 provide a "True Market Value". If we are able to obtain approval to Edmunds API,
 we can implement the price feature.
+
+### Detailed Filter on Car List page
+The addition of allowing a user to better hone into a vehicle of their own desire will be a nice additional overall to the web application. This function will allow the user to further select particular specifications they desire in the already populated list, and provide a more detailed list with the added filters.
