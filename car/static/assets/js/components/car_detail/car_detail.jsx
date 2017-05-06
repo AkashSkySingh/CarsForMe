@@ -12,7 +12,6 @@ class CarDetail extends React.Component {
     this.getInfo = this.getInfo.bind(this);
     this.moveForward = this.moveForward.bind(this);
     this.moveBackward = this.moveBackward.bind(this);
-    console.log(props);
   }
 
   componentWillMount() {
@@ -27,7 +26,7 @@ class CarDetail extends React.Component {
 
   getInfo() {
     // this.getPosition();
-    // this.getCarPicture();
+    this.getCarPicture();
     // this.getDealerships();
   }
 
@@ -38,7 +37,9 @@ class CarDetail extends React.Component {
   cars() {
     let carsList = [];
     let idx = null;
-    this.props.carList.keys().forEach((key) => {
+    let keyd = Object.keys(this.props.carList);
+    let lastIdx = keyd.length - 1;
+    keyd.forEach((key) => {
       carsList.push(this.props.carList[key]);
       if (this.props.carList[key].id === this.props.id) {
         idx = key;
@@ -46,36 +47,47 @@ class CarDetail extends React.Component {
     });
     return ({
       carList:  carsList,
-      index: idx
+      index: idx,
+      lastIndex: lastIdx
     })
   }
 
   moveForward() {
-    if (this.props.carList.length > 1) {
-      let { carList, index } = this.cars();
+    let { carList, index } = this.cars();
 
-      console.log("got the carList");
+    if (index) {
+
+      if (parseInt(index) !== carList.length - 1) {
+        hashHistory.push(`/cars/${carList[parseInt(index) + 1].id}`)
+      } else {
+        hashHistory.push(`/cars/${carList[0].id}`)
+      }
 
     } else {
       if (this.props.id !== 2360) {
         hashHistory.push(`/cars/${this.props.id + 1}`);
       } else {
-        hashHistory.push(`/cars/${2360}`);
+        hashHistory.push(`/cars/${1}`);
       }
     }
   }
 
   moveBackward() {
-    if (this.props.carList.length > 1) {
-      let {  carList, index } = this.cars();
+    let { carList, index, lastIndex } = this.cars();
 
-      console.log("got the carList");
+    if (index) {
+
+      if (parseInt(index) !== 0) {
+        hashHistory.push(`/cars/${carList[parseInt(index) - 1].id}`)
+      } else {
+        hashHistory.push(`/cars/${carList[lastIndex].id}`)
+      }
 
     } else {
       if (this.props.id !== 1) {
         hashHistory.push(`/cars/${this.props.id - 1}`);
       } else {
-        hashHistory.push(`/cars/${1}`);
+        hashHistory.push(`/cars/${2360}`);
       }
     }
   }
