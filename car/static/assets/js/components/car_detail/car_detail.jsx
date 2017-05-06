@@ -10,6 +10,8 @@ class CarDetail extends React.Component {
     super(props);
     this.state = { picture: null, position: "unknown", lng: null, lat: null, locations: {} };
     this.getInfo = this.getInfo.bind(this);
+    this.moveForward = this.moveForward.bind(this);
+    this.moveBackward = this.moveBackward.bind(this);
     console.log(props);
   }
 
@@ -25,18 +27,59 @@ class CarDetail extends React.Component {
 
   getInfo() {
     // this.getPosition();
-    this.getCarPicture();
+    // this.getCarPicture();
     // this.getDealerships();
-    // console.log(this.props);
   }
 
   // Find index via props.id or the entire car object to move forward.
   // The carList is an object of objects.
+  // Use the .keys function to iterate and store the value associated with current car and its neighbors into variable. let the function itself take in a direction, base on the direct, set the state to  the following vehicle in carsList.
+  // Must come up with a conditional to see if there is a carList present inside props, else use ids to dictate arrow movement.
+  cars() {
+    let carsList = [];
+    let idx = null;
+    this.props.carList.keys().forEach((key) => {
+      carsList.push(this.props.carList[key]);
+      if (this.props.carList[key].id === this.props.id) {
+        idx = key;
+      }
+    });
+    return ({
+      carList:  carsList,
+      index: idx
+    })
+  }
 
   moveForward() {
-    let currentIndex = this.props.carList.indexOf(this.props.details);
+    if (this.props.carList.length > 1) {
+      let { carList, index } = this.cars();
 
+      console.log("got the carList");
+
+    } else {
+      if (this.props.id !== 2360) {
+        hashHistory.push(`/cars/${this.props.id + 1}`);
+      } else {
+        hashHistory.push(`/cars/${2360}`);
+      }
+    }
   }
+
+  moveBackward() {
+    if (this.props.carList.length > 1) {
+      let {  carList, index } = this.cars();
+
+      console.log("got the carList");
+
+    } else {
+      if (this.props.id !== 1) {
+        hashHistory.push(`/cars/${this.props.id - 1}`);
+      } else {
+        hashHistory.push(`/cars/${1}`);
+      }
+    }
+  }
+
 
   getPosition() {
     navigator.geolocation.getCurrentPosition(
@@ -105,7 +148,7 @@ class CarDetail extends React.Component {
     return(
       <div className="detail-middle">
 
-        <div className="arrow">
+        <div className="arrow" onClick={this.moveBackward}>
           <img className="arrow-img" src="https://res.cloudinary.com/nightstock/image/upload/s--zQgvR_x5--/a_180/v1493781285/arrow-right-white_hubelu.png" />
         </div>
 
@@ -250,7 +293,7 @@ class CarDetail extends React.Component {
           </div>
         </div>
 
-        <div className="arrow">
+        <div className="arrow" onClick={this.moveForward}>
           <img className="arrow-img" src="https://res.cloudinary.com/nightstock/image/upload/s--JqZfSSuS--/v1493781285/arrow-right-white_hubelu.png" />
         </div>
 
