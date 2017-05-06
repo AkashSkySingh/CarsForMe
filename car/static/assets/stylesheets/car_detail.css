@@ -18,6 +18,11 @@
   margin: auto 30px;
   display: block;
   border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, .9);
 }
 
 .arrow-img {
